@@ -1,0 +1,18 @@
+#Upphafsmynd
+
+print('                 -------------------------')
+print('                 --- Escape from VR-II ---')
+print('                 -------------------------')
+print('')
+print('')
+print('---------------------------------------------------------')
+print('-- Velkominn í Escape from VR-II                       --')
+print('--                                                     --')
+print('-- Alexander Róbert Magnússon er nýbúinn að taka gott  --')
+print('-- session á lesstofunni í VR-II og ætlar að koma sér  --')
+print('-- heim. Áður en hann getur það þarf hann að leysa úr  --')
+print('-- nokkrum þrautum sem samnemendur hans hafa lagt      --')
+print('-- í veg fyrir hann.                                   --')
+print('---------------------------------------------------------')
+print('')
+print('')
