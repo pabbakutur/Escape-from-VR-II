@@ -1,12 +1,16 @@
 def main():
     spurningar = [
-        {"spurning": "What's .5 + .5?",
+        {"spurning": "Svar 3?",
          "svar": [ "1" , "2" , "3" , "4"],
-         "rétt": "1"} ,
+         "rétt": "3"} ,
         {"spurning": "Hvernig er banani á litinn?",
         "svar":["gulur" , "rauður" , "grænn" , "blár"],
         "rétt": "1"} ,
+        {"spurning": "Svar 2?",
+         "svar": [ "1" , "2" , "3" , "4"],
+         "rétt": "2"} ,
          ]
+    print("\n")
     print("Spurningaleikur! \n")
     print("Svaraðu 2 spurningum rétt til að vinna\n")
     print("Þú hefur 3 tilraunir\n")
@@ -23,14 +27,13 @@ def main():
         exit
 
 import random
-
 def spila(spurningar):
-
-    nafn = input("Hvað heitiru: ")
+    print("\n")
     score = 0
+    total = 0
     random.shuffle(spurningar)
-
     for spurning in spurningar:
+        print("Veldu 1, 2, 3 eða 4")
         print(spurning["spurning"])
         for i, val in enumerate(spurning["svar"]):
             print(str(i + 1) + ". " + val)
@@ -40,11 +43,19 @@ def spila(spurningar):
             answer = input("\nVeldu svar: ")
         if answer == spurning["rétt"]:
             score += 1
+            total += 1
             print("\nÞað er rétt.\n")
         else:
             print("\nÞað er rangt. \n")
-        print("Stigastaða: ", score, "\n")
-    print(nafn + ", þú ert með", score, "rétt.\n")
-    main()
+            total +=1
+        print("Stigastaða: ", score, "af", total, "\n")
+        if score - total == -2:
+            print("Þú tapaðir")
+            break
+        elif score == 2:
+            print("Þú vannst")
+            break
+    print("Þú varst með", score, "rétt af", total ,"\n")
+    exit
 
 main()
