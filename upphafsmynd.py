@@ -29,13 +29,16 @@ class upphafsmynd:
                 a = input('Ýttu á ENTER til að halda áfram')
                 if(len(a)<1):
                     break
+            self.bord1()
 
 
     def bord1(self):
-        pass
+        print('kominn a bord 1')
+
+        self.bord2()
 
     def bord2(self):
-        pass
+        print('kominn a bord 2')
 
 def main():
     leikur = upphafsmynd()
@@ -45,13 +48,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-
-while 1:
-    a = input('Ýttu á ENTER til að halda áfram')
-    if(len(a)<1):
-        break
