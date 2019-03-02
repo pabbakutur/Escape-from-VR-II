@@ -16,12 +16,12 @@ def mynd():
     import matplotlib.pyplot as plt
     from PIL import Image
 
-    ImageAddress = 'blom.jpg'
+    ImageAddress = 'blom.jpg'  #myndin þarf að vera i sama folder
     ImageItself = Image.open(ImageAddress)
     ImageNumpyFormat = np.asarray(ImageItself)
     plt.imshow(ImageNumpyFormat)
     plt.draw()
-    plt.pause(2) # pause how many seconds
+    plt.pause(2) # pause
     plt.close()
     spurning()
 
@@ -35,7 +35,7 @@ def spurning():
     if svar == "1":
         print("Það er rétt")
         ##fara á næsta borð
-    elif svar == "2":
+    else:
         print("það er rangt")
         ##aftur á upphafsskjá eða önnur tilraun?
 
