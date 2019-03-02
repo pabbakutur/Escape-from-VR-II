@@ -39,14 +39,14 @@ class upphafsmynd:
 
         spurningar = [
             {"spurning": "Svar 3?",
-         "svar": [ "1" , "2" , "3" , "4"],
-         "rétt": "3"} ,
-        {"spurning": "Hvernig er banani á litinn?",
-        "svar":["gulur" , "rauður" , "grænn" , "blár"],
-        "rétt": "1"} ,
-        {"spurning": "Svar 2?",
-         "svar": [ "1" , "2" , "3" , "4"],
-         "rétt": "2"} ,
+            "svar": [ "1" , "2" , "3" , "4"],
+            "rétt": "3"} ,
+            {"spurning": "Hvernig er banani á litinn?",
+            "svar":["gulur" , "rauður" , "grænn" , "blár"],
+            "rétt": "1"} ,
+            {"spurning": "Svar 2?",
+            "svar": [ "1" , "2" , "3" , "4"],
+            "rétt": "2"} ,
          ]
         print("\n")
         print("Spurningaleikur! \n")
