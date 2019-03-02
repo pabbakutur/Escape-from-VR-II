@@ -34,30 +34,27 @@ class upphafsmynd:
         self.bord1()
 
 ##########################################
-
     def bord1(self):
+        print('velkominn á borð 1')
+
         spurningar = [
             {"spurning": "Svar 3?",
-             "svar": [ "1" , "2" , "3" , "4"],
-             "rétt": "3"} ,
-            {"spurning": "Hvernig er banani á litinn?",
-             "svar":["gulur" , "rauður" , "grænn" , "blár"],
-             "rétt": "1"} ,
-            {"spurning": "Svar 2?",
-             "svar": [ "1" , "2" , "3" , "4"],
-                     "rétt": "2"} ,
-                     ]
-
+         "svar": [ "1" , "2" , "3" , "4"],
+         "rétt": "3"} ,
+        {"spurning": "Hvernig er banani á litinn?",
+        "svar":["gulur" , "rauður" , "grænn" , "blár"],
+        "rétt": "1"} ,
+        {"spurning": "Svar 2?",
+         "svar": [ "1" , "2" , "3" , "4"],
+         "rétt": "2"} ,
+         ]
         print("\n")
-        print("Alexander er staðsettur í hópavinnustofunni að \n") ; sleep(0.5)
-        print('leggja lokahönd á heimavinnu vikunnar en er fastur.') ; sleep(0.5)
-        print('Getur þú hjálpað honum?') ; sleep(0.5)
-        print("Lexi þarf að svara 2 spurningum til að komast út\n") ; sleep(0.5)
-        print("hann hefur 3 tilraunir\n") ; sleep(0.5)
-        print('') ; sleep(0.5)
-        print('Valmynd') ; sleep(0.5)
-        print('1. Byrja leik') ; sleep(0.5)
-        print('2. Loka leik')  ; sleep(0.5)
+        print("Spurningaleikur! \n")
+        print("Svaraðu 2 spurningum rétt til að vinna\n")
+        print("Þú hefur 3 tilraunir\n")
+        print("Menu\n"
+            "1. Byrja leik\n"
+            "2. Loka leik\n")
         val = int(input("Veldu möguleika: "))
         print("")
         while int(val) not in range(1, 3):
@@ -66,8 +63,7 @@ class upphafsmynd:
             spila(spurningar)
         elif val == 2:
             exit
-
-
+##########################################
     def spila(spurningar):
         print("\n")
         score = 0
@@ -97,6 +93,8 @@ class upphafsmynd:
                 print("Þú vannst")
                 break
         print("Þú varst með", score, "rétt af", total ,"\n")
+
+
 
 ###############################################
     def bord2(self):
