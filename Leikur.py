@@ -74,7 +74,7 @@ class upphafsmynd:
                 total +=1
             print("Rétt svör: ", score, "af", total, "\n")
             if score - total == -2:
-                print("Alexander náði ekki að klára heimavinnuna."))
+                print("Alexander náði ekki að klára heimavinnuna.")
                 break
             elif score == 2:
                 print("Jæja þá er Lexi loksins búinn að læra heima")
