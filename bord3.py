@@ -1,25 +1,21 @@
 def bord3():
     print('''
 ****************************************
-*            Nú er Lexi að             *
-* Nú er Lexi að leita af hlutunum sínu!*
+*            Nú er Lexi að              *
+* Nú er Lexi að safna heimaverkefnisínu!*
 *    til að geta farið heim að læra.    *
-*         Hjálpaðu honum að            *
-*       leita í tölvustofunin          *
+*         Hjálpaðu honum að             *
+*       leita í tölvustofunin           *
 ****************************************
 ''')
     global hlutir
     hlutir = 2
     global heisla
     heisla = 3
-    global orka
-    orka = 10
     global nesti
-    nesti = 1
+    nesti = 0
     global fullheisla
     fullheisla = 3
-    global arasir
-    arasir = 0
     gangur()
 
 ## Game functions
@@ -31,7 +27,6 @@ def checkstats():
     print("Hlutir:", hlutir)
     print("Heisla:", heisla,"/",fullheisla)
     print("Heimaverkefni:", nesti)
-    print ("Orka:", orka)
 
 def prompt():
     x = input("Type a command: ")
@@ -115,25 +110,25 @@ Hann Lexi labbaði inní stigllastofuna.
     ''')
 
     ## Þetta gerist þegar maður fer í fyrsta skipti inní stigllastofuna
-    global arasir
-    if arasir == 0:
+    global heisla
+    if heisla > 0:
         print('''********
 Stæfræði stigllar ráðast á Lexa með Sundurleitnisetningin II
 og hann meiðist
-(-1 heisla)
+(-1 heilsa)
 
 
 ''')### missir líf
-        arasir = 1
-        global heisla
         heisla = heisla - 1
         #heilsan fer niður
 
 
+
     ##Þetta gerist ef þú kemur í annaðskiptið
-    if arasir == 1:
+    if heisla > 0:
+
         print('''Valkostir:
-Ertu viss um þú viljir koma inní stigllastofuna
+Ertu viss um þú viljir fara aftur inní stigllastofuna
 1. Fara fram á gang
 2. Fara inn í stigllastofuna
 3. Fara inná prófissorskrifstofuna
@@ -229,17 +224,17 @@ Nú hafa helstu prófessorar Stæfræðinnar komið að þér
 def strakar():
     print('''********
 
-Áttu heimaverkefni til að deila með stráknum
+Áttu heimaverkefni til að deila til að geta fengið frá þeim?
 
 1. Já
 2. nei''')
     global nesti
     command=prompt()
     if command == "1" and nesti <2:
-        nesti = 2
+        nesti = nesti + 1
         print('''********
 Þú átt fleir heimaverkefni."
-(+1 nesti)
+(+1 heimaverkefni)
 ''')
         hopav()
     elif command == "1" and nesti >1:
@@ -249,7 +244,7 @@ def strakar():
         hopav()
     elif command == "2":
         print(''' ********
-Strákar: gangi þér vel."
+Strákar: gangi þér vel þú fræð ekki að herma eftir okkur."
 ''')
         hopav()
     else:
@@ -260,18 +255,18 @@ def boatconvo():
     print('''********
 Deildarstjóri: Hefur efni á að fara heima?"
 
-1. Já ég hef það
+1. Já Lexi er búinn með nóg af heimaverkefnum
 2. Nei
 ''')
     command = prompt()
     if command == "1" and nesti > 1:
         print('''********
-        Þú getur farið heim.
+        Lexi getur farið heim.
 ''')
         heim()
     if command == "1" and nesti < 2:
         print('''********
-        Þú hefur ekki klárað nó af heimavinnuna
+        Lexi hefur ekki klárað nó af heimavinnuna
 ''')
         gangur()
     elif command =="2":
