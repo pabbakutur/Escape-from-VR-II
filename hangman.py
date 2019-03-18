@@ -11,7 +11,7 @@ def clear():
 
 #Þetta fall prentar út mynd af hengimanni á skipanalínu. Index er fjöldi skrefa eftir
 #og ætti að vera >=0
-def hangmanInterface(index):
+def hengimadurprent(index):
         if index==0:
                 print('         _____ ')
                 print('         |   | ')
@@ -104,7 +104,7 @@ def hangmanInterface(index):
                 return
 
 #Borð 3 hefst hér, spilari getur valið um 3 möguleika. Byrja, upplýsingar eða hætta.
-def startInterface():
+def startgluggi():
         clear()
         print('######################################')
         print('#         Velkominn í borð 3         #')
@@ -117,7 +117,7 @@ def startInterface():
         return choice
 
 #Spilari fær að velja mismunandi orðaflokka
-def startInterface2():
+def startgluggi2():
         clear()
         print('######################################')
         print('#   Nú hefur þú kost á að velja 3    #')
@@ -156,7 +156,7 @@ def upplysingar():
 def gameInterface(guess,miss_attempts,misses,hintleft):
         clear()
         left = 9-miss_attempts
-        hangmanInterface(left)
+        hengimadurprent(left)
         print('###########################################')
         print('Word: ',end='')
         for i in guess:
@@ -196,12 +196,12 @@ def game(word,hintMax):
         hintTimes = 0
         misses = []
         guess = ""
-        for i in range(length):
-            if(word[i]== " "):
-                guess = guess + " "
-            else:
-                guess = guess + "_"
-        #guess = ['_' for i in range(length)]
+        #for i in range(length):
+            #if(word[i]== " "):
+                #guess = guess + " "
+            #else:
+                #guess = guess + "_"
+        guess = ['_' for i in range(length)]
         while True:
             operation = gameInterface(guess,miss,misses,hintMax-hintTimes)
             if operation == '#':
@@ -227,7 +227,7 @@ def game(word,hintMax):
                 continue
             elif operation == '!':
                 clear()
-                hangmanInterface(9-miss)
+                hengimadurprent(9-miss)
                 print('###########################################')
                 print('# The answer is',word)
                 print('# wait fewer seconds to back to main menu')
@@ -246,7 +246,7 @@ def game(word,hintMax):
 
             if not '_' in guess:
                 clear()
-                hangmanInterface(9-miss)
+                hengimadurprent(9-miss)
                 print('###########################################')
                 print('# ',end='')
                 for i in guess:
@@ -383,10 +383,10 @@ def check(addition):
 clear()
 while True:
     gameProcess = True
-    sel = startInterface()
+    sel = startgluggi()
     if sel=='1':
         while True:
-            sel2 = startInterface2()
+            sel2 = startgluggi2()
             if not sel2.isdigit():
                 continue
             elif len(sel2)>1:
