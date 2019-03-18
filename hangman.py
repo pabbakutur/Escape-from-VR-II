@@ -2,6 +2,7 @@ import time
 import random
 easy = ['SIGURÐUR ÖRN','RÖGNVALDUR MÖLLER','INGÓLFUR HJÖRLEIFSSON','GUNNAR SCHRAM','VILMUNDUR TORFI','SIGURÐUR FREYR']
 normal = ['PYTHON','PIONEER','SINGAPORE','FATHER','MOTHER','GONGYIWEI']
+expert = ['GAUSS','FRIEDEL']
 
 #Hreinsum skjáinn (30 auðar línur)
 def clear():
@@ -275,9 +276,7 @@ def hint(word,guess):
 #################################################
 #Þetta fall velur random orð úr orðaflokki sem spilari velur.
 def getWord(sel):
-    global easy,normal
-    if sel==3:
-        sel = 2
+    global easy,normal,expert
     if sel == 1:
         length = len(easy)
         index = random.randrange(0,length)
@@ -286,23 +285,10 @@ def getWord(sel):
         length = len(normal)
         index = random.randrange(0,length)
         return normal[index]
-
-#################################################
-#check          : Check the whether is easy or normal
-#pre-condition  : addition should be a string only contenting alpha
-#post-condition : return 1 if it is easy return 2 if it is normal
-#################################################
-def check(addition):
-    sign = 0
-    result = ['CHECK']
-    for i in addition:
-        if not i in result:
-            result.append(i)
-    sign = len(result)
-    if sign>6:
-        return 2
-    else:
-        return 1
+    elif sel == 3:
+        length = len(expert)
+        index = random.randrange(0,length)
+        return expert[index]
 
 #Hér næst kemur main fallið fyrir borð 3
 clear()
@@ -328,10 +314,5 @@ while True:
         continue
     elif sel=='3':
         break
-    elif sel=='admin':
-        getWord(4)
-    elif sel=='whosyourdaddy':
-                    word = 'HANGMAN'
-                    temp = game(word,1000)
     else:
         continue
