@@ -1,28 +1,16 @@
-#################################################
-# Author      : Ciel, imwithye
-# Matric No   : U1220539K
-# Group       : FS4
-#################################################
 import time
 import random
-easy = ['PHONE','HAPPY','APPLE','EARTH','GONGYIWEI']
+easy = ['PHONE BILL']
+#,'HAPPY','APPLE','EARTH','GONGYIWEI'
 normal = ['PYTHON','PIONEER','SINGAPORE','FATHER','MOTHER','GONGYIWEI']
-#################################################
-#clear          : This function will clear the whole screen with 30 blank lines
-#
-#pre-condition  : NONE
-#post-condition : print out 30 blank lines
-#################################################
+
+#Hreinsum skjáinn (30 auðar línur)
 def clear():
         for i in range(30):
                 print ('\n')
 
-#################################################
-#hangmanInterface       : This function will print a basic interface of Hangman.
-#                         The argument index means how many steps left.
-#pre-condition          : index is the number of steps left and should GREATTER or EQUALS to 0!
-#post-condition         : print out a basic interface of Hangman
-#################################################
+#Þetta fall prentar út mynd af hengimanni á skipanalínu. Index er fjöldi skrefa eftir
+#og ætti að vera >=0
 def hangmanInterface(index):
         if index==0:
                 print('         _____ ')
@@ -115,64 +103,53 @@ def hangmanInterface(index):
                 print('     ________|_')
                 return
 
-#################################################
-#startInterface : startInterface in the first user interface
-#pre-condition  : input should be a interger between 1 to 3
-#post-condition : this function will give out user's choice of gaming!
-#################################################
+#Borð 3 hefst hér, spilari getur valið um 3 möguleika. Byrja, upplýsingar eða hætta.
 def startInterface():
         clear()
-        print('####################')
-        print('#                  #')
-        print('#      Hangman     #')
-        print('#                  #')
-        print('####################')
-        print('       1.Start     #')
-        print('       2.Copyright #')
-        print('       3.Exit      #')
-        choice = input('Input Selection: ')
+        print('######################################')
+        print('#         Velkominn í borð 3         #')
+        print('#      Hengimaður að hætti Lexa      #')
+        print('######################################')
+        print('#       1.Byrja                      #')
+        print('#       2.Upplýsingar um borð 3      #')
+        print('#       3.Hætta                      #')
+        choice = input('Veldu möguleika 1,2 eða 3: ')
         return choice
 
-#################################################
-#startInterface2 : startInterface2 is the second interface user will see
-#pre-condition   : input should be a integer between 1 to 3
-#post-condition  : this function will give out user's choice of degree of difficulty
-#################################################
+#Spilari fær að velja mismunandi orðaflokka
 def startInterface2():
         clear()
-        print('####################')
-        print('#                  #')
-        print('#      Hangman     #')
-        print('#                  #')
-        print('####################')
-        print('        1.Easy     #')
-        print('        2.Normal   #')
-        print('        3.Expert   #')
-        choice = input('Input Selection: ')
+        print('######################################')
+        print('#   Nú hefur þú kost á að velja 3    #')
+        print('#   mismunandi orðaflokka sem eru    #')
+        print('#   í miklu uppáhaldi hjá Lexa.      #')
+        print('######################################')
+        print('        1.Kennarar í HÍ    #')
+        print('        2.Frægir stærðfræðingar   #')
+        print('        3.Stærðfræðisetningar  #')
+        choice = input('Veldu möguleika 1,2 eða 3: ')
         return choice
 
-#################################################
-#copyrightInterface : this function shows Copyright
-#pre-condition      : input can be anything
-#post-condition     : bring user back to first user interface
-#################################################
-def copyrightInterface():
+#Fall sem inniheldur upplýsingar um borð 3.  Til að fara úr því þarf að ýta á einhvern takka
+def upplysingar():
         clear()
-        print('####################')
-        print('#                  #')
-        print('#      Hangman     #')
-        print('#                  #')
-        print('####################')
-        print('# Author: Ciel, imwithye')
-        print('# School of Computer Engeineering')
-        print('# Nanyang Technological University')
-        print('key in any input to go back')
+        print('#######################################################################')
+        print('#     Það sem fáir vita um Lexa er að uppáhalds leikur Lexa er        #')
+        print('#     hinn klassíski hengimaður. Markmið leiksins er að spilari       #')
+        print('#     reynir að komast að því hvaða orð tölvan hefur valið með því    #')
+        print('#     að giska á einn staf í einu. Ef spilari giskar á vitlausan staf #')
+        print('#     þá missir hann eina tilraun. Leikmaður hefur í heildina 9 til-  #')
+        print('#     raunir og ef hann klúðrar þeim öllum þá er maðurinn hengdur.    #')
+        print('#     Leikurinn er sérsniðinn að Lexa svo það eru einungis orð sem    #')
+        print('#     Lexi elskar. Njótið.                                            #')
+        print('#######################################################################')
+        print('Ýttu á einhvern staf á lyklaborðinu til að fara til baka')
         input('')
         return
 
 #################################################
 #gameInterface  : gameInterface is the main user interface in gaming.
-#pre-condition  : user's guess,miss_attempts should not greater than 6,misses is the history of mistake
+#pre-condition  : user's guess,miss_attempts should not greater than 9,misses is the history of mistake
 #post-condition : print out the interface and return # if restart, return ! if call for
 #                 help,return character else
 #################################################
@@ -218,7 +195,13 @@ def game(word,hintMax):
         miss = 0
         hintTimes = 0
         misses = []
-        guess = ['_' for i in range(length)]
+        guess = ""
+        for i in range(length):
+            if(word[i]== " "):
+                guess = guess + " "
+            else:
+                guess = guess + "_"
+        #guess = ['_' for i in range(length)]
         while True:
             operation = gameInterface(guess,miss,misses,hintMax-hintTimes)
             if operation == '#':
@@ -294,6 +277,7 @@ def hint(word,guess):
 #post-condition : return a word whose type is string.
 #                 Or Admin model to access library!
 #################################################
+#Þetta fall velur random orð úr orðaflokki sem spilari velur.
 def getWord(sel):
     global easy,normal
     if sel==3:
@@ -395,43 +379,8 @@ def check(addition):
     else:
         return 1
 
-
-#################################################
-# mainfunction: Hangman's main function
-# goal        : A command line Hangman game
-# explain     : There are three degrees of difficulties to choose;
-#               esay is a short word with repeat
-#               nomal degree, the word will not be too long
-#               expert will be very difficult.
-#               nomal and expert will use the same library but expert's hint is less
-# Author      : GONG YIWEI
-# Matric No   : U1220539K
-# Group       : FS4
-#################################################
+#Hér næst kemur main fallið fyrir borð 3
 clear()
-print(" __    __       ___      .__   __.   _______ .___  ___.      ___      .__   __.")
-print("|  |  |  |     /   \     |  \ |  |  /  _____||   \/   |     /   \     |  \ |  |")
-print("|  |__|  |    /  ^  \    |   \|  | |  |  __  |  \  /  |    /  ^  \    |   \|  |")
-print("|   __   |   /  /_\  \   |  . `  | |  | |_ | |  |\/|  |   /  /_\  \   |  . `  |")
-print("|  |  |  |  /  _____  \  |  |\   | |  |__| | |  |  |  |  /  _____  \  |  |\   |")
-print("|__|  |__| /__/     \__\ |__| \__|  \______| |__|  |__| /__/     \__\ |__| \__|")
-print('#######################################################')
-print('#    key in admin to get in admin model!              #')
-print('#    key in whosyourdaddy to get in special model!    #')
-print('#    Warnning! admin mode is ONLY for developers!     #')
-print('#    any bugs please report to                        #')
-print('#              http://github.com/imwithye             #')
-print('#    email: imwithye@gmail.com                        #')
-print('#######################################################')
-print()
-print('#    Wait for starting...',end='')
-print('<====',end='')
-print('====',end='')
-print('====',end='')
-print('====',end='')
-print('====> 100% DONE!')
-input('#    Press Enter')
-
 while True:
     gameProcess = True
     sel = startInterface()
@@ -450,7 +399,7 @@ while True:
                     gameProcess = game(word,4-int(sel2))
                 break
     elif sel=='2':
-        copyrightInterface()
+        upplysingar()
         continue
     elif sel=='3':
         break
