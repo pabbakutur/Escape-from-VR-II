@@ -1,7 +1,6 @@
 import time
 import random
-easy = ['PHONE BILL']
-#,'HAPPY','APPLE','EARTH','GONGYIWEI'
+easy = ['SIGURÐUR ÖRN','RÖGNVALDUR MÖLLER','INGÓLFUR HJÖRLEIFSSON','GUNNAR SCHRAM','VILMUNDUR TORFI','SIGURÐUR FREYR']
 normal = ['PYTHON','PIONEER','SINGAPORE','FATHER','MOTHER','GONGYIWEI']
 
 #Hreinsum skjáinn (30 auðar línur)
@@ -195,13 +194,10 @@ def game(word,hintMax):
         miss = 0
         hintTimes = 0
         misses = []
-        guess = ""
-        #for i in range(length):
-            #if(word[i]== " "):
-                #guess = guess + " "
-            #else:
-                #guess = guess + "_"
         guess = ['_' for i in range(length)]
+        for i in range(length):
+            if(word[i]== " "):
+                guess[i] = " "
         while True:
             operation = gameInterface(guess,miss,misses,hintMax-hintTimes)
             if operation == '#':
@@ -216,7 +212,7 @@ def game(word,hintMax):
                             guess[i] = operation
                     hintTimes = hintTimes+1
                 else:
-                    print('# Can not get hint any more!Try your best!')
+                    print('#Vísbendingarnar eru búnar!')
                     print('# Wait for 2 seconds')
                     time.sleep(2)
                     continue
@@ -290,77 +286,6 @@ def getWord(sel):
         length = len(normal)
         index = random.randrange(0,length)
         return normal[index]
-    else:
-        while True:
-            clear()
-            print('####################################')
-            print('# Edit Library, input "exit()" to go back to main menu:')
-            print('# 1.Show Library')
-            print('# 2.Add word; Program will automatically select degree of difficulty')
-            print('# 3.RESET to default.')
-            print('####################################')
-            selection = input('Selection: ')
-            if selection == 'exit()':
-                return 'DONE'
-            elif selection == '1':
-                print('_________________Library Files___________________')
-                print('easy:')
-                for i in easy:
-                    print('    ',i)
-                print()
-                print('normal and expert:')
-                for i in normal:
-                    print('    ',i)
-                print()
-                print('_________________Library Files___________________')
-                print('# key in any input to return')
-                temp = input()
-            elif selection == '2':
-                while True:
-                    print('_________________Addition___________________')
-                    print('Use end() to end')
-                    add = input()
-                    if add != 'end()':
-                        if add.isalpha():
-                            degree = check(add)
-                            if degree == 1:
-                                if not add.upper() in easy:
-                                    easy.append(add.upper())
-                                    print('# Add successfully!')
-                                else:
-                                    print('# REPEAT! Words has ready added!')
-
-                            else:
-                                if not add.upper() in normal:
-                                    normal.append(add.upper())
-                                    print('# Add successfully!')
-                                else:
-                                    print('# REPEAT! Words has ready added!')
-                        else:
-                            print('# Please input correctly!')
-                            continue
-                    else:
-                        print('_________________Addition___________________')
-                        print('Addition Done')
-                        time.sleep(2)
-                        break
-            elif selection == '3':
-                    while True:
-                        print('# Please be sure all data will be set to default!')
-                        print('# key in "confirm()" to continue and key in anything else to cancel')
-                        temp = input()
-                        if temp=='confirm()':
-                                easy = ['PHONE','HAPPY','APPLE','EARTH','GONGYIWEI']
-                                normal = ['PYTHON','PIONEER','SINGAPORE','FATHER','MOTHER','GONGYIWEI']
-                                print('# Successfully! wait 2 seconds.')
-                                time.sleep(2)
-                                break
-                        else:
-                                print('# Canceled! wait 2 seconds.')
-                                time.sleep(2)
-                                break
-            else:
-                continue
 
 #################################################
 #check          : Check the whether is easy or normal
