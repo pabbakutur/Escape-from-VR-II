@@ -1,8 +1,8 @@
 import time
 import random
-easy = ['SIGURÐUR ÖRN','RÖGNVALDUR MÖLLER','INGÓLFUR HJÖRLEIFSSON','GUNNAR SCHRAM','VILMUNDUR TORFI','SIGURÐUR FREYR']
-normal = ['PYTHON','PIONEER','SINGAPORE','FATHER','MOTHER','GONGYIWEI']
-expert = ['GAUSS','FRIEDEL']
+kennarar = ['SIGURÐUR ÖRN','RÖGNVALDUR MÖLLER','INGÓLFUR HJÖRLEIFSSON','GUNNAR SCHRAM','VILMUNDUR TORFI','SIGURÐUR FREYR']
+fraegir = ['PYTHAGORAS','ARCHIMEDES','FROBENIUS','EULER','FIBONACCI','ALBERT EINSTEIN']
+hugtok = ['JACOBI FYLKI','MILLIGILDISSETNINGIN','TAYLOR MARGLIÐA','HESSE FYLKI','LEIFASETNINGIN','CAUCHY SETNINGIN']
 
 #Hreinsum skjáinn (30 auðar línur)
 def clear():
@@ -126,7 +126,7 @@ def startgluggi2():
         print('######################################')
         print('        1.Kennarar í HÍ    #')
         print('        2.Frægir stærðfræðingar   #')
-        print('        3.Stærðfræðisetningar  #')
+        print('        3.Stærðfræðihugtök #')
         choice = input('Veldu möguleika 1,2 eða 3: ')
         return choice
 
@@ -147,30 +147,26 @@ def upplysingar():
         input('')
         return
 
-#################################################
-#gameInterface  : gameInterface is the main user interface in gaming.
-#pre-condition  : user's guess,miss_attempts should not greater than 9,misses is the history of mistake
-#post-condition : print out the interface and return # if restart, return ! if call for
-#                 help,return character else
-#################################################
+#gameInterface er aðal user interface-ið í leiknum. Guess,miss_attempts á ekki að vera >9, misses er öll röngu giskin
+#prentar út interface og skilar # ef spilari vill endurræsa, ! ef spilari vill svarið.
 def gameInterface(guess,miss_attempts,misses,hintleft):
         clear()
         left = 9-miss_attempts
         hengimadurprent(left)
         print('###########################################')
-        print('Word: ',end='')
+        print('Orð: ',end='')
         for i in guess:
                 print(i,' ',end='')
         print()
-        print('# Misses: ',end='')
+        print('# Röng gisk: ',end='')
         for i in misses:
                 print(i,' ',end='')
         print()
         if left != 0:
-            print('# You have ',left,' attempt(s) left')
-            print('# You have ',hintleft,' hint(s) left')
-            print('# input ? to get hint, # to restart and ! to see answer')
-            _in = input('# Guess: ')
+            print('# Þú átt ',left,' tilraun(ir) eftir')
+            print('# Þú átt ',hintleft,' vísbendingu/ar eftir')
+            print('# Skrifaðu ? til að fá vísbendingu, # til að byrja upp á nýtt og ! til að sjá svarið!')
+            _in = input('# Giskaðu á staf: ')
             if len(_in)>1:
                 return '<'
             else:
@@ -181,15 +177,11 @@ def gameInterface(guess,miss_attempts,misses,hintleft):
                 else:
                     return '<'
         else:
-            print('# key in any input to Try Again!')
+            print('# Þú tapaðir, skrifaðu inn einhvern staf til að reyna aftur!')
             _in = input('')
             return '#'
 
-#################################################
-#game           : game is the process of gaming. return false if game ends
-#pre-condition  : the answer 'word' should be a string. hintMax should not be greater than 3
-#post-condition : return false if game ends
-#################################################
+#Game is the process of gaming. Skilar false ef leikur endar. hintMax á ekki að vera stærri en 3.
 def game(word,hintMax):
         length = len(word)
         miss = 0
@@ -202,7 +194,7 @@ def game(word,hintMax):
         while True:
             operation = gameInterface(guess,miss,misses,hintMax-hintTimes)
             if operation == '#':
-                print('Restarting...')
+                print('Endurræsa...')
                 time.sleep(3)
                 return True
             elif operation == '?':
@@ -214,20 +206,20 @@ def game(word,hintMax):
                     hintTimes = hintTimes+1
                 else:
                     print('#Vísbendingarnar eru búnar!')
-                    print('# Wait for 2 seconds')
+                    print('# Augnablik!')
                     time.sleep(2)
                     continue
             elif operation == '<':
-                print('# Please input correctly!')
-                print('# Wait for 2 seconds')
+                print('# Þú mátt bara giska á einn staf í einu!')
+                print('# Augnablik!')
                 time.sleep(2)
                 continue
             elif operation == '!':
                 clear()
                 hengimadurprent(9-miss)
                 print('###########################################')
-                print('# The answer is',word)
-                print('# wait fewer seconds to back to main menu')
+                print('# Svarið er: ',word)
+                print('# Augnablik!')
                 time.sleep(3)
                 return False
             else:
@@ -249,16 +241,11 @@ def game(word,hintMax):
                 for i in guess:
                     print(i,' ',end='')
                 print()
-                print('# Great!')
+                print('# Vel gert!')
                 time.sleep(3)
                 return False
 
-
-#################################################
-#hint           : this function will return a correct character
-#pre-condition  : word should be a string and guess should be a list
-#post-condition : return back a correct character
-#################################################
+#Þetta fall skilar réttum staf. Word er strengur og guess er listi.
 def hint(word,guess):
     length = len(word)
     for i in range(length):
@@ -266,29 +253,22 @@ def hint(word,guess):
             hintletter = word[i]
             return hintletter
 
-#################################################
-#getWord        : getWord function will get a get a word randomly
-#                 Admin model can see the whole library and add words
-#pre-condition  : sel is the degree of difficulty and should be less than 3
-#                 if sel is greater then 3, that means Admin model!
-#post-condition : return a word whose type is string.
-#                 Or Admin model to access library!
-#################################################
-#Þetta fall velur random orð úr orðaflokki sem spilari velur.
+#Þetta fall velur random orð úr orðaflokki sem spilari velur. Sel er orðaflokkarnir (1,2,3).
+#Fallið skilar orð sem er strengur.
 def getWord(sel):
-    global easy,normal,expert
+    global kennarar,fraegir,hugtok
     if sel == 1:
-        length = len(easy)
+        length = len(kennarar)
         index = random.randrange(0,length)
-        return easy[index]
+        return kennarar[index]
     elif sel == 2:
-        length = len(normal)
+        length = len(fraegir)
         index = random.randrange(0,length)
-        return normal[index]
+        return fraegir[index]
     elif sel == 3:
-        length = len(expert)
+        length = len(hugtok)
         index = random.randrange(0,length)
-        return expert[index]
+        return hugtok[index]
 
 #Hér næst kemur main fallið fyrir borð 3
 clear()
