@@ -1,26 +1,21 @@
-def bord3():
-    print('''
-****************************************
-*            Nú er Lexi að              *
-* Nú er Lexi að safna heimaverkefnisínu!*
-*    til að geta farið heim að læra.    *
-*         Hjálpaðu honum að             *
-*       leita í tölvustofunin           *
-****************************************
-''')
-    global hlutir
-    hlutir = 2
-    global heisla
-    heisla = 3
-    global nesti
-    nesti = 0
-    global fullheisla
-    fullheisla = 3
-    gangur()
+class Bord4:
+    def __init__(self):
+        print('''****************************************
+        *            Nú er Lexi að              *
+        * Nú er Lexi að safna heimaverkefnisínu!*
+        *    til að geta farið heim að læra.    *
+        *         Hjálpaðu honum að             *
+        *       leita í tölvustofunin           *
+        ****************************************
+        ''')
+        self.hlutir=2
+        self.heisla = 3
+        self.nesti = 0
+        self.fullheisla = 3
 
 ## Game functions
 
-def checkstats():
+def checkstats(self):
     print('''
 
 ********''')
@@ -28,7 +23,7 @@ def checkstats():
     print("Heisla:", heisla,"/",fullheisla)
     print("Heimaverkefni:", nesti)
 
-def prompt():
+def prompt(self):
     x = input("Type a command: ")
     return x
 
@@ -39,7 +34,7 @@ def prompt():
 
 ## Gangur////
 
-def gangur():
+def gangur(self):
     print("****************************************")
     print('''
 

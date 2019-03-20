@@ -1,3 +1,5 @@
+class Bord2:
+    def __init__(self):
 def main():
     print("\n")
     print("Myndagáta! \n")
