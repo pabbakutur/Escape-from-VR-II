@@ -44,8 +44,8 @@ class upphafsmynd:
             {"spurning": "2xsin(x^2) dx = ?",
             "svar":["cos(x^2)" , "-cos(x)" , "1/2cos(x^2)" , "-cos(x^2)"],
             "rétt": "4"} ,
-            {"spurning": "d/dx tan(x)?",
-            "svar": [ "sec^2(x)" , "1/2sec(x)" , "sec(x^2)" , "sec(x)"],
+            {"spurning": "d/dx tan(x) = ?",
+            "svar": [ "1/cos^2(x)" , "1/cos(x)" , "1/cos(x^2)" , "1/cos(x^2)"],
             "rétt": "1"} ,
          ]
         print("Alexander þarf að svara þremur spurningum réttum")
