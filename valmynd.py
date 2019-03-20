@@ -2,6 +2,7 @@
 from time import sleep
 import sys
 import random
+import
 
 class upphafsmynd:
     def __init__(self):
@@ -79,8 +80,6 @@ class upphafsmynd:
             elif score == 2:
                 print("Jæja þá er Lexi loksins búinn að læra heima")
                 break
-
-
 
 ###############################################
     def bord2(self):
