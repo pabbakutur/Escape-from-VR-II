@@ -1,4 +1,4 @@
-def bord3():
+def bord4():
     print('''
 ****************************************
 *            Nú er Lexi að              *
@@ -273,4 +273,4 @@ Deildarstjóri: Hefur efni á að fara heima?"
         gangur()
 
 
-bord3()
+bord4()
