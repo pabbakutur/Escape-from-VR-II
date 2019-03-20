@@ -1,14 +1,14 @@
 def main():
     spurningar = [
-        {"spurning": "Svar 3?",
-         "svar": [ "1" , "2" , "3" , "4"],
+        {"spurning": "d/dx 1/2sin(x^2) = ?",
+         "svar": [ "1" , "2" , "xcos(x)" , "4"],
          "rétt": "3"} ,
-        {"spurning": "d/dx(1/2Sin(x^2)=?)",
-        "svar":["cos(x)" , "cos(x^2)" , "xcos(x^2)" , "xcos(x)"],
+        {"spurning": "d/dx cos(x^3) = ?)",
+        "svar":["-3x^2sin(x^3)" , "-3sin(x^3)" , "-cos(x^3)" , "-xcos(x^3)"],
         "rétt": "1"} ,
-        {"spurning": "Svar 2?",
-         "svar": [ "1" , "2" , "3" , "4"],
-         "rétt": "2"} ,
+        {"spurning": "x^2sin(x^3) dx = ?",
+         "svar": [ "-x^2cos(x^3) + C" , "-xcos(x^3) + C" , "1/3cos(x^3) + C" , "-1/3cos(x^3) + C"],
+         "rétt": "4"} ,
          ]
     print("\n")
     print("Spurningaleikur! \n")
