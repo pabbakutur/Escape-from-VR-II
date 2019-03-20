@@ -2,10 +2,10 @@ def main():
     print("\n")
     print("Myndagáta! \n")
     print("Skoðaðu myndina og svaraðu\n")
-    print("Insert_spurning \n")
+    print("Hversu mörg andlit af Alexander koma fyrir á myndinni? \n")
     print("")
     while 1:
-            a = input('Ýttu á ENTER til að halda áfram')
+            a = input('Ýttu á ENTER til að sjá myndina')
             if(len(a)<1):
                 mynd()
             else:
