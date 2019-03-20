@@ -9,7 +9,8 @@ def main():
             if(len(a)<1):
                 mynd()
             else:
-                break
+                main()
+
 
 def mynd():
     import numpy as np
@@ -25,18 +26,25 @@ def mynd():
     plt.close()
     spurning()
 
+def velja():
+    x = input("Veldu svar: ")
+    return x
+
 def spurning():
     print("Veldu svar. (1, 2, 3 eða 4)")
     print("1. Möguleiki 1\n")
     print("2. Möguleiki 2\n")
     print("3. Möguleiki 3\n")
     print("4. Möguleiki 4\n")
-    svar = input("Þitt svar: ")
+    svar = velja()
     if svar == "1":
         print("Það er rétt")
         ##fara á næsta borð
+    elif svar== "2" or "3" or "4":
+        print("Það er rangt")
+        ##aftur á upphafsskjá eða önnur tilraun?
     else:
-        print("það er rangt")
+        print("það er ekki valmöguleiki")
         ##aftur á upphafsskjá eða önnur tilraun?
 
 main()
