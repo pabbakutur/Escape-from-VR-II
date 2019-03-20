@@ -38,15 +38,15 @@ class upphafsmynd:
         print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(1)
         print('') ; sleep(0.5)
         spurningar = [
-            {"spurning": "Hvað er 5 + 5?",
-            "svar": [ "0" , "5" , "10" , "15"],
+            {"spurning": "d/dx 1/2sin(x^2) = ?",
+            "svar": [ "2cos(x^2)" , "1/2xcos(x^2)" , "xcos(x^2)" , "x^2cos(x^2)"],
             "rétt": "3"} ,
-            {"spurning": "Hvernig er banani á litinn?",
-            "svar":["gulur" , "rauður" , "grænn" , "blár"],
+            {"spurning": "2xsin(x^2) dx = ?",
+            "svar":["cos(x^2)" , "-cos(x)" , "1/2cos(x^2)" , "-cos(x^2)"],
+            "rétt": "4"} ,
+            {"spurning": "d/dx tan(x)?",
+            "svar": [ "sec^2(x)" , "1/2sec(x)" , "sec(x^2)" , "sec(x)"],
             "rétt": "1"} ,
-            {"spurning": "Klukkan hvað er nón?",
-            "svar": [ "12:00" , "15:00" , "18:00" , "21:00"],
-            "rétt": "2"} ,
          ]
         print("Alexander þarf að svara þremur spurningum réttum")
         print("í þremur tilraunum")
