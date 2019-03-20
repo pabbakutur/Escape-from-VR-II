@@ -58,4 +58,5 @@ def spila(spurningar):
     print("Þú varst með", score, "rétt af", total ,"\n")
     exit
 
+
 main()
