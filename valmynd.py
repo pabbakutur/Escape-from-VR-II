@@ -32,59 +32,7 @@ class upphafsmynd:
                 break
             bord1.byrja()
 
-##########################################
-    def bord1(self):
-        print('') ; sleep(1)
-        print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(1)
-        print('$$   HEIMAVINNAN   $$') ; sleep(1)
-        print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(1)
-        print('') ; sleep(0.5)
-        spurningar = [
-            {"spurning": "Hvað er 5 + 5?",
-            "svar": [ "0" , "5" , "10" , "15"],
-            "rétt": "3"} ,
-            {"spurning": "Hvernig er banani á litinn?",
-            "svar":["gulur" , "rauður" , "grænn" , "blár"],
-            "rétt": "1"} ,
-            {"spurning": "Klukkan hvað er nón?",
-            "svar": [ "12:00" , "15:00" , "18:00" , "21:00"],
-            "rétt": "2"} ,
-         ]
-        print("Alexander þarf að svara þremur spurningum réttum")
-        print("í þremur tilraunum")
 
-
-        print("\n")
-        score = 0
-        total = 0
-        random.shuffle(spurningar)
-        for spurning in spurningar:
-            print("Veldu 1, 2, 3 eða 4")
-            print(spurning["spurning"])
-            for i, val in enumerate(spurning["svar"]):
-                print(str(i + 1) + ". " + val)
-            answer = input("Veldu svar: ")
-            while int(answer)-1 not in range(len(spurning["svar"])):
-                print("\nÞetta er ekki svarmöguleiki, reyndu aftur. \n")
-                answer = input("\nVeldu svar: ")
-            if answer == spurning["rétt"]:
-                score += 1
-                total += 1
-                print("\nÞað er rétt.\n")
-            else:
-                print("\nÞað er rangt. \n")
-                total +=1
-            print("Rétt svör: ", score, "af", total, "\n")
-            if score - total == -2:
-                print("Alexander náði ekki að klára heimavinnuna.")
-                break
-            elif score == 2:
-                print("Jæja þá er Lexi loksins búinn að læra heima")
-                break
-
-###############################################
-    def bord2(self):
-        print('kominn a bord 2')
 #################################################
 def main():
     leikur = upphafsmynd()

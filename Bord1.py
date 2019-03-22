@@ -1,6 +1,7 @@
 import sys
 
 class Bord1():
+
     spurningar = [
     {"spurning": "Svar 3?","svar": [ "1" , "2" , "3" , "4"],
     "rétt": "3"} ,
@@ -15,8 +16,11 @@ class Bord1():
         pass
 
     def byrja(self):
-        pass
-
+        print('') ; sleep(1)
+        print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(1)
+        print('$$   HEIMAVINNAN   $$') ; sleep(1)
+        print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(1)
+        print('') ; sleep(0.5)
         print("\n")
         print("Spurningaleikur! \n")
         print("Svaraðu 2 spurningum rétt til að vinna\n")
@@ -66,4 +70,4 @@ def spila(spurningar):
     exit
 
 
-main()
+    main()
