@@ -213,7 +213,7 @@ class Bord3:
                             time.sleep(2)
                             continue
                     elif operation == '<':
-                        print('# Þú mátt bara giska á einn staf í einu!')
+                        print('# Vinsamlega sláðu inn 1 bókstaf')
                         print('# Augnablik!')
                         time.sleep(2)
                         continue
