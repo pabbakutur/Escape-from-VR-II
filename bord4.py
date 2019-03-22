@@ -268,4 +268,4 @@ class Bord4:
                 gangur()
 
 
-        bord3()
+    #    bord3()

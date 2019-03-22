@@ -1,11 +1,13 @@
+import sys
 import time
 import random
 from bord4 import Bord4
+#from bord2 import Bord2
 class Bord3:
     def __init__(self):
-        kennarar = ['SIGURÐUR ÖRN','RÖGNVALDUR MÖLLER','INGÓLFUR HJÖRLEIFSSON','GUNNAR SCHRAM','VILMUNDUR TORFI','SIGURÐUR FREYR']
-        fraegir = ['PYTHAGORAS','ARCHIMEDES','FROBENIUS','EULER','FIBONACCI','ALBERT EINSTEIN']
-        hugtok = ['JACOBI FYLKI','MILLIGILDISSETNINGIN','KLEMMUREGLAN','HESSE FYLKI','LEIFASETNINGIN','CAUCHY SETNINGIN']
+        self.kennarar = ['SIGURÐUR ÖRN','RÖGNVALDUR MÖLLER','INGÓLFUR HJÖRLEIFSSON','GUNNAR SCHRAM','VILMUNDUR TORFI','SIGURÐUR FREYR']
+        self.fraegir = ['PYTHAGORAS','ARCHIMEDES','FROBENIUS','EULER','FIBONACCI','ALBERT EINSTEIN']
+        self.hugtok = ['JACOBI FYLKI','MILLIGILDISSETNINGIN','KLEMMUREGLAN','HESSE FYLKI','LEIFASETNINGIN','CAUCHY SETNINGIN']
         #Hreinsum skjáinn (30 auðar línur)
     def clear(self):
         for i in range(30):
@@ -154,7 +156,7 @@ class Bord3:
     def gameInterface(self,guess,miss_attempts,misses,hintleft):
         self.clear()
         left = 9-miss_attempts
-        hengimadurprent(left)
+        self.hengimadurprent(left)
         print('###########################################')
         print('Orð: ',end='')
         for i in guess:
@@ -189,19 +191,21 @@ class Bord3:
         miss = 0
         hintTimes = 0
         misses = []
+        b4=Bord4()
+
         guess = ['_' for i in range(length)]
         for i in range(length):
             if(word[i]== " "):
                 guess[i] = " "
         while True:
-            operation = gameInterface(guess,miss,misses,hintMax-hintTimes)
+            operation = self.gameInterface(guess,miss,misses,hintMax-hintTimes)
             if operation == '#':
                 print('Endurræsa...')
                 time.sleep(3)
                 return True
             elif operation == '?':
                 if hintTimes<hintMax:
-                    operation = hint(word,guess)
+                    operation = self.hint(word,guess)
                     for i in range(length):
                         if word[i]==operation:
                             guess[i] = operation
@@ -218,7 +222,7 @@ class Bord3:
                 continue
             elif operation == '!':
                 self.clear()
-                hengimadurprent(9-miss)
+                self.hengimadurprent(9-miss)
                 print('###########################################')
                 print('# Svarið er: ',word)
                 print('# Augnablik!')
@@ -237,7 +241,7 @@ class Bord3:
 
             if not '_' in guess:
                 self.clear()
-                hengimadurprent(9-miss)
+                self.hengimadurprent(9-miss)
                 print('###########################################')
                 print('# ',end='')
                 for i in guess:
@@ -245,7 +249,8 @@ class Bord3:
                 print()
                 print('# Vel gert!')
                 time.sleep(3)
-                return False
+                b4.gangur()
+                #return False
 
         #Þetta fall skilar réttum staf. Word er strengur og guess er listi.
     def hint(self,word,guess):
@@ -258,29 +263,28 @@ class Bord3:
         #Þetta fall velur random orð úr orðaflokki sem spilari velur. Sel er orðaflokkarnir (1,2,3).
         #Fallið skilar orð sem er strengur.
     def getWord(self, sel):
-        global kennarar,fraegir,hugtok
         if sel == 1:
-            length = len(kennarar)
+            length = len(self.kennarar)
             index = random.randrange(0,length)
-            return kennarar[index]
+            return self.kennarar[index]
         elif sel == 2:
-            length = len(fraegir)
+            length = len(self.fraegir)
             index = random.randrange(0,length)
-            return fraegir[index]
+            return self.fraegir[index]
         elif sel == 3:
-            length = len(hugtok)
+            length = len(self.hugtok)
             index = random.randrange(0,length)
-            return hugtok[index]
+            return self.hugtok[index]
 
 #Hér næst kemur main fallið fyrir borð 3
-bord3=Bord3()
-bord3.clear()
+b3=Bord3()
+b3.clear()
 while True:
     gameProcess = True
-    sel = bord3.startgluggi()
+    sel = b3.startgluggi()
     if sel=='1':
         while True:
-            sel2 = bord3.startgluggi2()
+            sel2 = b3.startgluggi2()
             if not sel2.isdigit():
                 continue
             elif len(sel2)>1:
@@ -288,17 +292,17 @@ while True:
             elif int(sel2)>3 or int(sel2)<0:
                 continue
             else:
-                word = bord3.getWord(int(sel2))
+                word = b3.getWord(int(sel2))
                 while gameProcess:
-                    gameProcess = bord3.game(word,4-int(sel2))
+                    gameProcess = b3.game(word,4-int(sel2))
                 break
     elif sel=='2':
-        bord3.upplysingar()
+        b3.upplysingar()
         continue
     elif sel=='3':
-        break
+        sys.exit()
     else:
         continue
 #if kalla á borð 4
-bord4=Bord4()
-bord4.gangur()
+#bord4=Bord4()
+#bord4.gangur()
