@@ -23,9 +23,9 @@ class Bord1():
         print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(1)
         print('') ; sleep(0.5)
         print("\n")
-        print("Spurningaleikur! \n")
-        print("Svaraðu 2 spurningum rétt til að vinna\n")
-        print("Þú hefur 3 tilraunir\n")
+        print("Lexi situr á lesstofunni að leggja lokahönd á heimavinnuna sína.")
+        print("Hann hefur aldrei verið sterkur að heilda eða diffra, þú þarft")
+        print("að hjálpa honum. Þú færð 3 tilraunir til að svara 2 spurningum.")
         print("Menu\n"
         "1. Byrja leik\n"
         "2. Loka leik\n")
