@@ -25,7 +25,7 @@ class Bord1():
         print("\n")
         print("Lexi situr á lesstofunni að leggja lokahönd á heimavinnuna sína.")
         print("Hann hefur aldrei verið sterkur að heilda eða diffra, þú þarft")
-        print("að hjálpa honum. Þú færð 3 tilraunir til að svara 2 spurningum.")
+        print("að hjálpa honum. Þú færð 3 tilraunir til að svara 2 spurningum réttum.")
         print("Menu\n"
         "1. Byrja leik\n"
         "2. Loka leik\n")
