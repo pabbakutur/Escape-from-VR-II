@@ -17,10 +17,10 @@ class upphafsmynd:
         print('---------------------------------------------------------') ; sleep(0.5)
         print('-- Velkomin/nn í Escape from VR-II                     --') ; sleep(0.5)
         print('--                                                     --') ; sleep(0.5)
-        print('-- Alexander Róbert Magnússon er nýbúinn að taka gott  --') ; sleep(0.5)
-        print('-- session á lesstofunni í VR-II og ætlar að koma sér  --') ; sleep(0.5)
-        print('-- heim. Áður en hann getur það þarf hann að leysa     --') ; sleep(0.5)
-        print('-- nokkur verkefni.                                    --') ; sleep(0.5)
+        print('-- Alexander Róbert Magnússon er staddur í lesstofunni --') ; sleep(0.5)
+        print('-- í VR-II og ætlar að koma sér heim. Áður en hann     --') ; sleep(0.5)
+        print('-- getur það þarf hann að leysa nokkur verkefni sem    --') ; sleep(0.5)
+        print('-- þú þarft að hjálpa honum við.                       --') ; sleep(0.5)
         print('---------------------------------------------------------') ; sleep(0.5)
         print('') ; sleep(0.5)
         print('') ; sleep(0.5)
@@ -30,8 +30,7 @@ class upphafsmynd:
             a = input('Ýttu á ENTER til að halda áfram')
             if(len(a)<1):
                 bord1.byrja()
-            else:
-                break
+
 
 #################################################
 def main():

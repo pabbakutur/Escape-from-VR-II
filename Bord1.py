@@ -1,16 +1,18 @@
 import sys
 from time import sleep
+import time
 class Bord1():
 
     spurningar = [
-    {"spurning": "Svar 3?","svar": [ "1" , "2" , "3" , "4"],
+    {"spurning": "4x^3cos(x^4) dx = ?",
+    "svar": [ "1/4cos(x^4)" , "cos(x^4) + C" , "sin(x^4) + C" , "16x^4sin(x^4) + C"],
     "rétt": "3"} ,
-    {"spurning": "d/dx(1/2Sin(x^2)=?)",
+    {"spurning": "d/dx(1/2Sin(x^2) = ?)",
     "svar":["cos(x)" , "cos(x^2)" , "xcos(x^2)" , "xcos(x)"],
     "rétt": "1"} ,
-    {"spurning": "Svar 2?",
-     "svar": [ "1" , "2" , "3" , "4"],
-     "rétt": "2"},]
+    {"spurning": "d/dx tan(x) = ?",
+     "svar": [ "sec(x)" , "2sec(x^2)" , "1/2sec(x)" , "sec^2(x)"],
+     "rétt": "4"},]
 
     def __init__(self):
         pass
@@ -22,9 +24,11 @@ class Bord1():
         print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(1)
         print('') ; sleep(0.5)
         print("\n")
-        print("Spurningaleikur! \n")
-        print("Svaraðu 2 spurningum rétt til að vinna\n")
-        print("Þú hefur 3 tilraunir\n")
+        string = "Lexi situr á lesstofunni að leggja lokahönd á heimavinnuna sína.\nHann hefur aldrei verið sterkur að heilda eða diffra, þú þarft að hjálpa honum.\nÞú færð 3 tilraunir til að svara 2 spurningum réttum.\n"
+        for char in string:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(.15)
         print("Menu\n"
         "1. Byrja leik\n"
         "2. Loka leik\n")
@@ -33,7 +37,7 @@ class Bord1():
         while int(val) not in range(1, 3):
             val = input("Veldu 1 eða 2: ")
         if val == 1:
-            bord1.spila(spurningar)
+            spila(Bord1.spurningar)
         elif val == 2:
             sys.exit()
 
