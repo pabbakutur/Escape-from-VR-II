@@ -1,5 +1,5 @@
 import sys
-
+from time import sleep
 class Bord1():
 
     spurningar = [
@@ -33,7 +33,7 @@ class Bord1():
         while int(val) not in range(1, 3):
             val = input("Veldu 1 eða 2: ")
         if val == 1:
-            spila(spurningar)
+            bord1.spila(spurningar)
         elif val == 2:
             sys.exit()
 

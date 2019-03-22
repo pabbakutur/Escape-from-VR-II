@@ -29,9 +29,9 @@ class upphafsmynd:
         while 1:
             a = input('Ýttu á ENTER til að halda áfram')
             if(len(a)<1):
+                bord1.byrja()
+            else:
                 break
-            bord1.byrja()
-
 
 #################################################
 def main():
