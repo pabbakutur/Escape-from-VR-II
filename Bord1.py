@@ -3,7 +3,8 @@ from time import sleep
 class Bord1():
 
     spurningar = [
-    {"spurning": "Svar 3?","svar": [ "1" , "2" , "3" , "4"],
+    {"spurning": "4x^3cos(x^4) dx = ?",
+    "svar": [ "1/4cos(x^4)" , "cos(x^4) + C" , "sin(x^4) + C" , "16x^4sin(x^4) + C"],
     "rétt": "3"} ,
     {"spurning": "d/dx(1/2Sin(x^2)=?)",
     "svar":["cos(x)" , "cos(x^2)" , "xcos(x^2)" , "xcos(x)"],
@@ -33,7 +34,7 @@ class Bord1():
         while int(val) not in range(1, 3):
             val = input("Veldu 1 eða 2: ")
         if val == 1:
-            bord1.spila(spurningar)
+            spila(Bord1.spurningar)
         elif val == 2:
             sys.exit()
 
