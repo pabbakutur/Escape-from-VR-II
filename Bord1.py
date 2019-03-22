@@ -6,12 +6,12 @@ class Bord1():
     {"spurning": "4x^3cos(x^4) dx = ?",
     "svar": [ "1/4cos(x^4)" , "cos(x^4) + C" , "sin(x^4) + C" , "16x^4sin(x^4) + C"],
     "rétt": "3"} ,
-    {"spurning": "d/dx(1/2Sin(x^2)=?)",
+    {"spurning": "d/dx(1/2Sin(x^2) = ?)",
     "svar":["cos(x)" , "cos(x^2)" , "xcos(x^2)" , "xcos(x)"],
     "rétt": "1"} ,
-    {"spurning": "Svar 2?",
-     "svar": [ "1" , "2" , "3" , "4"],
-     "rétt": "2"},]
+    {"spurning": "d/dx tan(x) = ?",
+     "svar": [ "sec(x)" , "2sec(x^2)" , "1/2sec(x)" , "sec^2(x)"],
+     "rétt": "4"},]
 
     def __init__(self):
         pass
