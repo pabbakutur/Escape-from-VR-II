@@ -23,9 +23,11 @@ class Bord1():
         print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(1)
         print('') ; sleep(0.5)
         print("\n")
-        print("Lexi situr á lesstofunni að leggja lokahönd á heimavinnuna sína.")
-        print("Hann hefur aldrei verið sterkur að heilda eða diffra, þú þarft")
-        print("að hjálpa honum. Þú færð 3 tilraunir til að svara 2 spurningum réttum.")
+        string = "Lexi situr á lesstofunni að leggja lokahönd á heimavinnuna sína.\nHann hefur aldrei verið sterkur að heilda eða diffra, þú þarft að hjálpa honum.\nÞú færð 3 tilraunir til að svara 2 spurningum réttum.\n"
+        for char in string:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(.15)
         print("Menu\n"
         "1. Byrja leik\n"
         "2. Loka leik\n")
