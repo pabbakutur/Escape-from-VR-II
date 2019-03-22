@@ -5,7 +5,7 @@ class Bord2:
             print("\n")
             print("Myndagáta! \n")
             print("Skoðaðu myndina og svaraðu\n")
-            print("Insert_spurning \n")
+            print("Hversu mörg andlit af Lexa eru á myndinni? \n")
             print("")
             while 1:
                     a = input('Ýttu á ENTER til að halda áfram')
@@ -19,7 +19,7 @@ class Bord2:
             import matplotlib.pyplot as plt
             from PIL import Image
 
-            ImageAddress = 'blom.jpg'  #myndin þarf að vera i sama folder
+            ImageAddress = 'lexi.png'  #myndin þarf að vera i sama folder
             ImageItself = Image.open(ImageAddress)
             ImageNumpyFormat = np.asarray(ImageItself)
             plt.imshow(ImageNumpyFormat)
