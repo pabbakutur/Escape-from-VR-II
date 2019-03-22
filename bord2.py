@@ -38,8 +38,10 @@ class Bord2:
             if svar == "1":
                 print("Það er rétt")
                 ##fara á næsta borð
-            else:
+            elif svar == "2" or "3" or "4":
                 print("það er rangt")
                 ##aftur á upphafsskjá eða önnur tilraun?
-
+            else:
+                print("það er ekki valmöguleiki")
+                spurning()
         main()
