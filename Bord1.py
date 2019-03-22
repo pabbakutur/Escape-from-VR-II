@@ -1,5 +1,6 @@
 import sys
 from time import sleep
+import time
 class Bord1():
 
     spurningar = [
