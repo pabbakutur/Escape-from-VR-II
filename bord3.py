@@ -8,19 +8,19 @@ class Bord3:
         hugtok = ['JACOBI FYLKI','MILLIGILDISSETNINGIN','KLEMMUREGLAN','HESSE FYLKI','LEIFASETNINGIN','CAUCHY SETNINGIN']
 
         #Hreinsum skjáinn (30 auðar línur)
-        def clear():
-                for i in range(30):
-                        print ('\n')
+    def clear(self):
+        for i in range(30):
+            print ('\n')
 
         #Þetta fall prentar út mynd af hengimanni á skipanalínu. Index er fjöldi skrefa eftir
         #og ætti að vera >=0
-        def hengimadurprent(index):
+        def hengimadurprent(self,index):
                 if index==0:
                         print('         _____ ')
                         print('         |   | ')
                         print('         O   | ')
-                        print('        /|\  | ')
-                        print('        / \  | ')
+                        print('        /|\\  | ')
+                        print('        / \\  | ')
                         print('             | ')
                         print('     ________|_')
                         return
@@ -28,7 +28,7 @@ class Bord3:
                         print('         _____ ')
                         print('         |   | ')
                         print('         O   | ')
-                        print('        /|\  | ')
+                        print('        /|\\  | ')
                         print('        /    | ')
                         print('             | ')
                         print('     ________|_')
@@ -37,7 +37,7 @@ class Bord3:
                         print('         _____ ')
                         print('         |   | ')
                         print('         O   | ')
-                        print('        /|\  | ')
+                        print('        /|\\  | ')
                         print('             | ')
                         print('             | ')
                         print('     ________|_')
@@ -107,20 +107,20 @@ class Bord3:
                         return
 
         #Borð 3 hefst hér, spilari getur valið um 3 möguleika. Byrja, upplýsingar eða hætta.
-        def startgluggi():
-                clear()
-                print('######################################')
-                print('#         Velkominn í borð 3         #')
-                print('#      Hengimaður að hætti Lexa      #')
-                print('######################################')
-                print('#       1.Byrja                      #')
-                print('#       2.Upplýsingar um borð 3      #')
-                print('#       3.Hætta                      #')
-                choice = input('Veldu möguleika 1,2 eða 3: ')
-                return choice
+    def startgluggi(self):
+        self.clear()
+        print('######################################')
+        print('#         Velkominn í borð 3         #')
+        print('#      Hengimaður að hætti Lexa      #')
+        print('######################################')
+        print('#       1.Byrja                      #')
+        print('#       2.Upplýsingar um borð 3      #')
+        print('#       3.Hætta                      #')
+        choice = input('Veldu möguleika 1,2 eða 3: ')
+        return choice
 
         #Spilari fær að velja mismunandi orðaflokka
-        def startgluggi2():
+        def startgluggi2(self):
                 clear()
                 print('######################################')
                 print('#   Nú hefur þú kost á að velja 3    #')
@@ -134,8 +134,8 @@ class Bord3:
                 return choice
 
         #Fall sem inniheldur upplýsingar um borð 3.  Til að fara úr því þarf að ýta á einhvern takka
-        def upplysingar():
-                clear()
+        def upplysingar(self):
+                self.clear()
                 print('#######################################################################')
                 print('#     Það sem fáir vita um Lexa er að uppáhalds leikur Lexa er        #')
                 print('#     hinn klassíski hengimaður. Markmið leiksins er að spilari       #')
@@ -152,8 +152,8 @@ class Bord3:
 
         #gameInterface er aðal user interface-ið í leiknum. Guess,miss_attempts á ekki að vera >9, misses er öll röngu giskin
         #prentar út interface og skilar # ef spilari vill endurræsa, ! ef spilari vill svarið.
-        def gameInterface(guess,miss_attempts,misses,hintleft):
-                clear()
+        def gameInterface(self,guess,miss_attempts,misses,hintleft):
+                self.clear()
                 left = 9-miss_attempts
                 hengimadurprent(left)
                 print('###########################################')
@@ -185,7 +185,7 @@ class Bord3:
                     return '#'
 
         #Game is the process of gaming. Skilar false ef leikur endar. hintMax á ekki að vera stærri en 3.
-        def game(word,hintMax):
+        def game(self,word,hintMax):
                 length = len(word)
                 miss = 0
                 hintTimes = 0
@@ -218,7 +218,7 @@ class Bord3:
                         time.sleep(2)
                         continue
                     elif operation == '!':
-                        clear()
+                        self.clear()
                         hengimadurprent(9-miss)
                         print('###########################################')
                         print('# Svarið er: ',word)
@@ -237,7 +237,7 @@ class Bord3:
                                 misses.append(operation)
 
                     if not '_' in guess:
-                        clear()
+                        self.clear()
                         hengimadurprent(9-miss)
                         print('###########################################')
                         print('# ',end='')
@@ -249,7 +249,7 @@ class Bord3:
                         return False
 
         #Þetta fall skilar réttum staf. Word er strengur og guess er listi.
-        def hint(word,guess):
+        def hint(self,word,guess):
             length = len(word)
             for i in range(length):
                 if guess[i]=='_':
@@ -258,7 +258,7 @@ class Bord3:
 
         #Þetta fall velur random orð úr orðaflokki sem spilari velur. Sel er orðaflokkarnir (1,2,3).
         #Fallið skilar orð sem er strengur.
-        def getWord(sel):
+        def getWord(self, sel):
             global kennarar,fraegir,hugtok
             if sel == 1:
                 length = len(kennarar)
@@ -273,33 +273,33 @@ class Bord3:
                 index = random.randrange(0,length)
                 return hugtok[index]
 
-        #Hér næst kemur main fallið fyrir borð 3
-        clear()
+#Hér næst kemur main fallið fyrir borð 3
+bord3=Bord3()
+bord3.clear()
+while True:
+    gameProcess = True
+    sel = bord3.startgluggi()
+    if sel=='1':
         while True:
-            gameProcess = True
-            sel = startgluggi()
-            if sel=='1':
-                while True:
-                    sel2 = startgluggi2()
-                    if not sel2.isdigit():
-                        continue
-                    elif len(sel2)>1:
-                        continue
-                    elif int(sel2)>3 or int(sel2)<0:
-                        continue
-                    else:
-                        word = getWord(int(sel2))
-                        while gameProcess:
-                            gameProcess = game(word,4-int(sel2))
-                        break
-            elif sel=='2':
-                upplysingar()
+            sel2 = bord3.startgluggi2()
+            if not sel2.isdigit():
                 continue
-            elif sel=='3':
-                break
+            elif len(sel2)>1:
+                continue
+            elif int(sel2)>3 or int(sel2)<0:
+                continue
             else:
-                continue
-
-        #if kalla á borð 4
-        bord4=Bord4()
-        bord4.gangur()
+                word = bord3.getWord(int(sel2))
+                while gameProcess:
+                    gameProcess = bord3.game(word,4-int(sel2))
+                break
+    elif sel=='2':
+        bord3.upplysingar()
+        continue
+    elif sel=='3':
+        break
+    else:
+        continue
+#if kalla á borð 4
+bord4=Bord4()
+bord4.gangur()

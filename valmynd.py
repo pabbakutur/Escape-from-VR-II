@@ -2,7 +2,7 @@
 from time import sleep
 import sys
 import random
-import
+from bord1 import Bord1
 
 class upphafsmynd:
     def __init__(self):
@@ -25,11 +25,12 @@ class upphafsmynd:
         print('') ; sleep(0.5)
         print('') ; sleep(0.5)
 
+        bord1=Bord1()
         while 1:
             a = input('Ýttu á ENTER til að halda áfram')
             if(len(a)<1):
                 break
-        self.bord1()
+            bord1.byrja()
 
 ##########################################
     def bord1(self):

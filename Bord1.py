@@ -1,30 +1,37 @@
-def main():
+import sys
+
+class Bord1():
     spurningar = [
-        {"spurning": "d/dx 1/2sin(x^2) = ?",
-         "svar": [ "1" , "2" , "xcos(x)" , "4"],
-         "rétt": "3"} ,
-        {"spurning": "d/dx cos(x^3) = ?)",
-        "svar":["-3x^2sin(x^3)" , "-3sin(x^3)" , "-cos(x^3)" , "-xcos(x^3)"],
-        "rétt": "1"} ,
-        {"spurning": "x^2sin(x^3) dx = ?",
-         "svar": [ "-x^2cos(x^3) + C" , "-xcos(x^3) + C" , "1/3cos(x^3) + C" , "-1/3cos(x^3) + C"],
-         "rétt": "4"} ,
-         ]
-    print("\n")
-    print("Spurningaleikur! \n")
-    print("Svaraðu 2 spurningum rétt til að vinna\n")
-    print("Þú hefur 3 tilraunir\n")
-    print("Menu\n"
-          "1. Byrja leik\n"
-          "2. Loka leik\n")
-    val = int(input("Veldu möguleika: "))
-    print("")
-    while int(val) not in range(1, 3):
-        val = input("Veldu 1 eða 2: ")
-    if val == 1:
-        spila(spurningar)
-    elif val == 2:
-        exit
+    {"spurning": "Svar 3?","svar": [ "1" , "2" , "3" , "4"],
+    "rétt": "3"} ,
+    {"spurning": "d/dx(1/2Sin(x^2)=?)",
+    "svar":["cos(x)" , "cos(x^2)" , "xcos(x^2)" , "xcos(x)"],
+    "rétt": "1"} ,
+    {"spurning": "Svar 2?",
+     "svar": [ "1" , "2" , "3" , "4"],
+     "rétt": "2"},]
+
+    def __init__(self):
+        pass
+
+    def byrja(self):
+        pass
+
+        print("\n")
+        print("Spurningaleikur! \n")
+        print("Svaraðu 2 spurningum rétt til að vinna\n")
+        print("Þú hefur 3 tilraunir\n")
+        print("Menu\n"
+        "1. Byrja leik\n"
+        "2. Loka leik\n")
+        val = int(input("Veldu möguleika: "))
+        print("")
+        while int(val) not in range(1, 3):
+            val = input("Veldu 1 eða 2: ")
+        if val == 1:
+            spila(spurningar)
+        elif val == 2:
+            sys.exit()
 
 import random
 def spila(spurningar):
