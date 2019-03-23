@@ -16,7 +16,8 @@ class Bord1():
      "rétt": "4"},]
 
     def __init__(self):
-        pass
+        self.score= 0
+        self.total= 0
 
     def byrja(self):
         print('') ; sleep(1)
@@ -56,7 +57,7 @@ def spila(spurningar):
         answer = velja()
 
         if answer == spurning["rétt"]:
-            score += 1
+            self.score += 1
             total += 1
             print("\nÞað er rétt.\n")
         elif answer == "1":
@@ -74,17 +75,14 @@ def spila(spurningar):
         else:
             print("Þetta er ekki valmöguleiki, reyndu aftur")
         print("Stigastaða: ", score, "af", total, "\n")
-        if score - total == -2:
+        if self.score - total == -2:
             print("Þú tapaðir")
             break
-        elif score == 2:
+        elif self.score == 2:
             print("Þú vannst")
             break
         else:
             spila(spurningar)
-    def stigastafla():
-        self.score= 0
-        self.total= 0
         ###########
 
     print("Þú varst með", score, "rétt af", total ,"\n")
