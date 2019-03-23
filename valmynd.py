@@ -10,6 +10,9 @@ class upphafsmynd:
 
 #################################################
     def kynning(self):
+        for i in range(30):
+            print('')
+        sleep(5)
         print('                 -------------------------') ; sleep(1)
         print('                 --- Escape from VR-II ---') ; sleep(1)
         print('                 -------------------------') ; sleep(1)
