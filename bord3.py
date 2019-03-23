@@ -8,6 +8,7 @@ class Bord3:
         self.kennarar = ['SIGURÐUR ÖRN','RÖGNVALDUR MÖLLER','INGÓLFUR HJÖRLEIFSSON','GUNNAR SCHRAM','VILMUNDUR TORFI','SIGURÐUR FREYR']
         self.fraegir = ['PYTHAGORAS','ARCHIMEDES','FROBENIUS','EULER','FIBONACCI','ALBERT EINSTEIN']
         self.hugtok = ['JACOBI FYLKI','MILLIGILDISSETNINGIN','KLEMMUREGLAN','HESSE FYLKI','LEIFASETNINGIN','CAUCHY SETNINGIN']
+
         #Hreinsum skjáinn (30 auðar línur)
     def clear(self):
         for i in range(30):
@@ -169,12 +170,12 @@ class Bord3:
         if left != 0:
             print('# Þú átt ',left,' tilraun(ir) eftir')
             print('# Þú átt ',hintleft,' vísbendingu/ar eftir')
-            print('# Skrifaðu ? til að fá vísbendingu, # til að byrja upp á nýtt og ! til að sjá svarið!')
+            print('# Skrifaðu ? til að fá vísbendingu og ! til að hætta')
             _in = input('# Giskaðu á staf: ')
             if len(_in)>1:
                 return '<'
             else:
-                if _in == '?' or _in == '#' or _in == '!':
+                if _in == '?' or _in == '!':
                     return _in
                 elif _in.isalpha():
                     return _in.upper()
@@ -182,6 +183,7 @@ class Bord3:
                     return '<'
         else:
             print('# Þú tapaðir, skrifaðu inn einhvern staf til að reyna aftur!')
+            time.sleep(2)
             _in = input('')
             return '#'
 
@@ -200,11 +202,11 @@ class Bord3:
         keyra=True
         while keyra:
             operation = self.gameInterface(guess,miss,misses,hintMax-hintTimes)
-            if operation == '#':
-                print('Endurræsa...')
-                time.sleep(3)
-                return True
-            elif operation == '?':
+            #if operation == '#':
+                #print('Endurræsa...')
+                #time.sleep(3)
+                #return True
+            if operation == '?':
                 if hintTimes<hintMax:
                     operation = self.hint(word,guess)
                     for i in range(length):
@@ -222,13 +224,14 @@ class Bord3:
                 time.sleep(2)
                 continue
             elif operation == '!':
-                self.clear()
-                self.hengimadurprent(9-miss)
-                print('###########################################')
-                print('# Svarið er: ',word)
-                print('# Augnablik!')
-                time.sleep(3)
-                return False
+                sys.exit()
+                #self.clear()
+                #self.hengimadurprent(9-miss)
+                #print('###########################################')
+                #print('# Svarið er: ',word)
+                #print('# Augnablik!')
+                #time.sleep(3)
+                #return False
             else:
                 flag=0
                 for i in range(length):
@@ -251,7 +254,7 @@ class Bord3:
                 print('# Vel gert!')
                 time.sleep(2)
                 keyra = False
-        b4.gangur()
+                b4.gangur()
                 #return False
 
         #Þetta fall skilar réttum staf. Word er strengur og guess er listi.
@@ -297,7 +300,7 @@ while True:
                 word = b3.getWord(int(sel2))
                 while gameProcess:
                     gameProcess = b3.game(word,4-int(sel2))
-                break
+                sys.exit()
     elif sel=='2':
         b3.upplysingar()
         continue
