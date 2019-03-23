@@ -10,7 +10,7 @@ class Bord1():
     "rétt": "3"} ,
     {"spurning": "d/dx(1/2Sin(x^2) = ?)",
     "svar":["cos(x)" , "cos(x^2)" , "xcos(x^2)" , "xcos(x)"],
-    "rétt": "1"} ,
+    "rétt": "3"} ,
     {"spurning": "d/dx tan(x) = ?",
      "svar": [ "sec(x)" , "2sec(x^2)" , "1/2sec(x)" , "sec^2(x)"],
      "rétt": "4"},]
@@ -20,27 +20,27 @@ class Bord1():
         self.total= 0
 
     def byrja(self):
-        print('') ; sleep(1)
-        print('') ; sleep(1)
-        print('') ; sleep(1)
-        print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(1)
-        print('$$   HEIMAVINNAN   $$') ; sleep(1)
-        print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(1)
-        print('') ; sleep(1)
-        print('') ; sleep(1)
-        print('') ; sleep(1)
-        string = "Lexi situr á lesstofunni að leggja lokahönd á heimavinnuna sína.\nHann hefur aldrei verið sterkur að heilda eða diffra, þú þarft að hjálpa honum.\nÞú færð 3 tilraunir til að svara 2 spurningum réttum."
-        for char in string:
-            sys.stdout.write(char)
-            sys.stdout.flush()
-            time.sleep(.10)
-        print('') ; sleep(0.5)
-        print('') ; sleep(0.5)
+#        print('') ; sleep(1)
+#        print('') ; sleep(1)
+#        print('') ; sleep(1)
+#        print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(1)
+#        print('$$   HEIMAVINNAN   $$') ; sleep(1)
+#        print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(1)
+#        print('') ; sleep(1)
+#        print('') ; sleep(1)
+#        print('') ; sleep(1)
+#        string = "Lexi situr á lesstofunni að leggja lokahönd á heimavinnuna sína.\nHann hefur aldrei verið sterkur að heilda eða diffra, þú þarft að hjálpa honum.\nÞú færð 3 tilraunir til að svara 2 spurningum réttum."
+#        for char in string:
+#            sys.stdout.write(char)
+#            sys.stdout.flush()
+#            time.sleep(.10)
+#        print('') ; sleep(0.5)
+#        print('') ; sleep(0.5)
 
         while 1:
             a = input('Ýttu á ENTER til að halda áfram')
             if(len(a)<1):
-                spila(Bord1.spurningar)
+                spila(self, Bord1.spurningar)
 
 def velja():
     x=input("Veldu svar: ")
