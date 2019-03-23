@@ -197,7 +197,8 @@ class Bord3:
         for i in range(length):
             if(word[i]== " "):
                 guess[i] = " "
-        while True:
+        keyra=True
+        while keyra:
             operation = self.gameInterface(guess,miss,misses,hintMax-hintTimes)
             if operation == '#':
                 print('Endurræsa...')
@@ -248,8 +249,9 @@ class Bord3:
                     print(i,' ',end='')
                 print()
                 print('# Vel gert!')
-                time.sleep(3)
-                b4.gangur()
+                time.sleep(2)
+                keyra = False
+        b4.gangur()
                 #return False
 
         #Þetta fall skilar réttum staf. Word er strengur og guess er listi.
