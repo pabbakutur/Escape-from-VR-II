@@ -2,7 +2,6 @@ import sys
 from time import sleep
 import time
 class Bord1():
-#####
     spurningar = [
     {"spurning": "4x^3cos(x^4) dx = ?",
     "svar": [ "1/4cos(x^4)" , "cos(x^4) + C" , "sin(x^4) + C" , "16x^4sin(x^4) + C"],
