@@ -1,8 +1,9 @@
 import sys
 from time import sleep
 import time
-class Bord1():
+import random
 
+class Bord1():
     spurningar = [
     {"spurning": "4x^3cos(x^4) dx = ?",
     "svar": [ "1/4cos(x^4)" , "cos(x^4) + C" , "sin(x^4) + C" , "16x^4sin(x^4) + C"],
@@ -19,50 +20,59 @@ class Bord1():
 
     def byrja(self):
         print('') ; sleep(1)
+        print('') ; sleep(1)
+        print('') ; sleep(1)
         print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(1)
         print('$$   HEIMAVINNAN   $$') ; sleep(1)
         print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(1)
-        print('') ; sleep(0.5)
-        print("\n")
-        string = "Lexi situr á lesstofunni að leggja lokahönd á heimavinnuna sína.\nHann hefur aldrei verið sterkur að heilda eða diffra, þú þarft að hjálpa honum.\nÞú færð 3 tilraunir til að svara 2 spurningum réttum.\n"
+        print('') ; sleep(1)
+        print('') ; sleep(1)
+        print('') ; sleep(1)
+        string = "Lexi situr á lesstofunni að leggja lokahönd á heimavinnuna sína.\nHann hefur aldrei verið sterkur að heilda eða diffra, þú þarft að hjálpa honum.\nÞú færð 3 tilraunir til að svara 2 spurningum réttum."
         for char in string:
             sys.stdout.write(char)
             sys.stdout.flush()
-            time.sleep(.15)
-        print("Menu\n"
-        "1. Byrja leik\n"
-        "2. Loka leik\n")
-        val = int(input("Veldu möguleika: "))
-        print("")
-        while int(val) not in range(1, 3):
-            val = input("Veldu 1 eða 2: ")
-        if val == 1:
-            spila(Bord1.spurningar)
-        elif val == 2:
-            sys.exit()
+            time.sleep(.10)
+        print('') ; sleep(0.5)
+        print('') ; sleep(0.5)
 
-import random
+        while 1:
+            a = input('Ýttu á ENTER til að halda áfram')
+            if(len(a)<1):
+                spila(Bord1.spurningar)
+
+def velja():
+    x=input("Veldu svar: ")
+    return x
+
 def spila(spurningar):
     print("\n")
-    score = 0
-    total = 0
     random.shuffle(spurningar)
     for spurning in spurningar:
         print("Veldu 1, 2, 3 eða 4")
         print(spurning["spurning"])
         for i, val in enumerate(spurning["svar"]):
             print(str(i + 1) + ". " + val)
-        answer = input("Veldu svar: ")
-        while int(answer)-1 not in range(len(spurning["svar"])):
-            print("\nÞetta er ekki svarmöguleiki, reyndu aftur. \n")
-            answer = input("\nVeldu svar: ")
+        answer = velja()
+
         if answer == spurning["rétt"]:
             score += 1
             total += 1
             print("\nÞað er rétt.\n")
-        else:
+        elif answer == "1":
             print("\nÞað er rangt. \n")
             total +=1
+        elif answer == "2":
+            print("\nÞað er rangt. \n")
+            total +=1
+        elif answer == "3":
+            print("\nÞað er rangt. \n")
+            total +=1
+        elif answer == "4":
+            print("\nÞað er rangt. \n")
+            total +=1
+        else:
+            print("Þetta er ekki valmöguleiki, reyndu aftur")
         print("Stigastaða: ", score, "af", total, "\n")
         if score - total == -2:
             print("Þú tapaðir")
@@ -70,6 +80,13 @@ def spila(spurningar):
         elif score == 2:
             print("Þú vannst")
             break
+        else:
+            spila(spurningar)
+    def stigastafla():
+        self.score= 0
+        self.total= 0
+        ###########
+
     print("Þú varst með", score, "rétt af", total ,"\n")
     exit
 
