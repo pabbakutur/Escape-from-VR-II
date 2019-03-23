@@ -46,7 +46,7 @@ def velja():
     x=input("Veldu svar: ")
     return x
 
-def spila(spurningar):
+def spila(self, spurningar):
     print("\n")
     random.shuffle(spurningar)
     for spurning in spurningar:
@@ -58,24 +58,24 @@ def spila(spurningar):
 
         if answer == spurning["rétt"]:
             self.score += 1
-            total += 1
+            self.total += 1
             print("\nÞað er rétt.\n")
         elif answer == "1":
             print("\nÞað er rangt. \n")
-            total +=1
+            self.total +=1
         elif answer == "2":
             print("\nÞað er rangt. \n")
-            total +=1
+            self.total +=1
         elif answer == "3":
             print("\nÞað er rangt. \n")
-            total +=1
+            self.total +=1
         elif answer == "4":
             print("\nÞað er rangt. \n")
-            total +=1
+            self.total +=1
         else:
             print("Þetta er ekki valmöguleiki, reyndu aftur")
-        print("Stigastaða: ", score, "af", total, "\n")
-        if self.score - total == -2:
+        print("Stigastaða: ", self.score, "af", self.total, "\n")
+        if self.score - self.total == -2:
             print("Þú tapaðir")
             break
         elif self.score == 2:
@@ -85,7 +85,7 @@ def spila(spurningar):
             spila(spurningar)
         ###########
 
-    print("Þú varst með", score, "rétt af", total ,"\n")
+    print("Þú varst með", self.score, "rétt af", self.total ,"\n")
     exit
 
 
