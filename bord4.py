@@ -13,6 +13,11 @@ class Bord4:
         self.nesti = 0
         self.fullheilsa = 3
 
+ #Hreinsum skjáinn (30 auðar línur)
+    def clear(self):
+        for i in range(30):
+           print ('\n')
+
         ## Game functions
 
     def keyra(self):
@@ -24,12 +29,10 @@ class Bord4:
         *       leita í tölvustofunin           *
         ****************************************
         ''')
-        self.gangur()
+        return self.RunSelection("gangur")
 
     def checkstats(self):
-        print('''
-
-    ********''')
+        print('''****************************************''')
         print("Hlutir:", self.hlutir)
         print("heilsa:", self.heilsa,"/",self.fullheilsa)
         print("Heimaverkefni:", self.nesti)
@@ -37,6 +40,44 @@ class Bord4:
     def prompt(self):
         x = input("Veldu möguleika: ")
         return x
+
+    def RunSelection(self, room):
+        while True:
+            self.clear()
+            self.checkstats()
+            if room == "gangur":
+                room = self.gangur()
+                continue
+            elif room == "lesstofa":
+                room = self.lesstofa()
+                continue
+            elif room == "stiglaas":
+                room = self.stiglaas()
+                continue
+            elif room == "hopav":
+                room = self.hopav()
+                continue
+            elif room == "heim":
+                self.heim()
+                return 1
+            elif room == "skrifstofu":
+                room = self.skrifstofu()
+                continue
+            elif room == "strakar":
+                room = self.strakar()
+                continue
+            elif room == "boatconvo":
+                room = self.boatconvo()
+                continue
+            elif room == "-1":
+                return -1
+            elif room == "1":
+                return 1
+            elif room == "0": 
+                return 0
+            else:
+                return 0
+        return 0
 
         ## Gangur
     def gangur(self):
@@ -54,19 +95,19 @@ class Bord4:
 
         command = self.prompt()
         if command == "1":
-            self.lesstofa()
+            return "lesstofa"
         elif command == "2":
             print("********")
             print ("Þú hefur byrjað uppá nýtt. (",self.fullheilsa,"/",self.fullheilsa,")")
             #global heilsa
             self.heilsa = self.fullheilsa
-            self.gangur()
+            return "gangur"
         elif command == "9":
             self.checkstats()
-            self.gangur()
+            return "gangur"
         else:
-            self.gangur()
-        return False
+            return "gangur"
+        return "0"
 
     ## lesstofa ////
     def lesstofa(self):
@@ -84,16 +125,16 @@ class Bord4:
     ''')
         command = self.prompt()
         if command == "1":
-            self.gangur()
+            return "gangur"
         elif command == "2":
-            self.stiglaas()
+            return "stiglaas"
         elif command == "3":
-            self.hopav()
+            return "hopav"
         elif command == "9":
             self.checkstats()
-            self.lesstofa()
+            return "lesstofa"
         else:
-            self.lesstofa()
+            return "lesstofa"
 
     ## stigllastofuna ////
     def stiglaas(self):
@@ -104,6 +145,8 @@ class Bord4:
 
         ## Þetta gerist þegar maður fer í fyrsta skipti inní stigllastofuna
         #global heilsa
+        if self.heilsa == 0:
+            return "-1" #Death
         if self.heilsa > 0:
             print('''********
     Stærðfræði stiglar ráðast á Lexa með Sundurleitnisetningu II
@@ -124,16 +167,18 @@ class Bord4:
         ''') ##It gives you your options
             command = self.prompt()
             if command == ("1"):
-              self.gangur()
+                return "gangur"
             elif command == ("2"):
-              self.stiglaas()
+                return "stiglaas"
             elif command == "3":
-                self.skrifstofu()
+                return "skrifstofu"
             elif command == "9":
-              self.checkstats()
-              self.stiglaas()
+                self.checkstats()
+                return "stiglaas"
             else:
-              self.stiglaas()
+                return "stiglaas"
+        else:
+            return "-1"
 
     ## Coast
     def hopav(self):
@@ -148,16 +193,16 @@ class Bord4:
     9. Stats''')
         command = self.prompt()
         if command == "1":
-            self.gangur()
+            return "gangur"
         elif command == "2":
-            self.strakar()
+            return "strakar"
         elif command =="3":
-            self.boatconvo()
+            return "boatconvo"
         elif command =="9":
             self.checkstats()
-            self.hopav()
+            return "hopav"
         else:
-            self.hopav()
+            return "hopav"
 
     ##City
     def heim(self):
@@ -177,7 +222,7 @@ class Bord4:
     3. Reyna vera vinur Rögga Möllers og Ragnars S''')
         command = self.prompt()
         if command == "1":
-            self.gangur()
+            return "gangur"
         elif command == "2":
             print('''
     *********''')
@@ -211,19 +256,19 @@ class Bord4:
     Þú átt fleiri heimaverkefni."
     (+1 heimaverkefni)
     ''')
-            self.hopav()
+            return "hopav"
         elif command == "1" and self.nesti >1:
             print('''********
     Þú átt nóg af heimaverkefnum."
             ''')
-            self.hopav()
+            return "hopav"
         elif command == "2":
             print(''' ********
     Strákar: Gangi þér vel þú færð ekki að herma eftir okkur."
     ''')
-            self.hopav()
+            return "hopav"
         else:
-            self.hopav()
+            return "hopav"
 
 
     def boatconvo(self):
@@ -237,14 +282,16 @@ class Bord4:
         if command == "1" and self.nesti > 1:
             print('''****************************************
             Lexi getur farið heim.''')
-            self.heim()
+            return "heim"
         if command == "1" and self.nesti < 2:
             print('''********
             Lexi hefur ekki klárað nægilega mikið af heimaverkefnum
     ''')
-            self.gangur()
+            return "gangur"
         elif command =="2":
-            self.gangur()
+            return "gangur"
 
-
-    #    bord3()
+if __name__ == '__main__':
+    b4 = Bord4()
+    b4.keyra()
+    

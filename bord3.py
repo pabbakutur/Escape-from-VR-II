@@ -9,10 +9,10 @@ class Bord3:
         self.fraegir = ['PYTHAGORAS','ARCHIMEDES','FROBENIUS','EULER','FIBONACCI','ALBERT EINSTEIN']
         self.hugtok = ['JACOBI FYLKI','MILLIGILDISSETNINGIN','KLEMMUREGLAN','HESSE FYLKI','LEIFASETNINGIN','CAUCHY SETNINGIN']
 
-        #Hreinsum skjáinn (30 auðar línur)
+    #Hreinsum skjáinn (30 auðar línur)
     def clear(self):
         for i in range(30):
-            print ('\n')
+           print ('\n')
 
         #Þetta fall prentar út mynd af hengimanni á skipanalínu. Index er fjöldi skrefa eftir
         #og ætti að vera >=0
