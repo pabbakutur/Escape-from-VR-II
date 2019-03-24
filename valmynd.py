@@ -31,10 +31,12 @@ class upphafsmynd:
         while 1:
             a = input('Ýttu á ENTER til að halda áfram')
             if(len(a)<1):
-                bord1=Bord1()
                 bord1.byrja()
 
 
+def main():
+    leikur = upphafsmynd()
+    leikur.kynning()
 
-valmynd = kynning()
-valmynd.kynning()
+if __name__ == '__main__':
+    main()

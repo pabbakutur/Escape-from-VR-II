@@ -90,5 +90,9 @@ class Bord1():
         print("Þú varst með", self.score, "rétt af", self.total ,"\n")
         exit
 
-B1=Bord1()
-B1.byrja()
+    def main():
+        B1=Bord1()
+        B1.byrja()
+
+if __name__ == '__main__':
+    main()
