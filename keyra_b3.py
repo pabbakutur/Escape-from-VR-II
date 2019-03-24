@@ -24,6 +24,8 @@ from bord4 import Bord4
 #             i = i +1
 #             ollbord[i].keyra()
 
+#b3 = Bord3()
+#ret = b3.keyra()
 b2 = Bord2()
 ret = Bord2().keyra()
 if ret == 1:
