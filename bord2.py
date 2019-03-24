@@ -1,7 +1,11 @@
+import sys
 from bord3 import Bord3
+import numpy as np
+import matplotlib.pyplot as plt
+from PIL import Image
 class Bord2:
     def __init__(self):
-        pass
+        self.total=0
     def main(self):
         print("\n")
         print("Myndagáta! \n")
@@ -16,11 +20,8 @@ class Bord2:
                     break
 
     def mynd(self):
-        import numpy as np
-        import matplotlib.pyplot as plt
-        from PIL import Image
 
-        ImageAddress = 'lexi1.png'  #myndin þarf að vera i sama folder
+        ImageAddress = 'lexi2.png'  #myndin þarf að vera i sama folder
         ImageItself = Image.open(ImageAddress)
         ImageNumpyFormat = np.asarray(ImageItself)
         plt.imshow(ImageNumpyFormat)
@@ -31,19 +32,32 @@ class Bord2:
 
     def spurning(self):
         print("Veldu svar. (1, 2, 3 eða 4)")
-        print("1. Möguleiki 1\n")
-        print("2. Möguleiki 2\n")
-        print("3. Möguleiki 3\n")
-        print("4. Möguleiki 4\n")
+        print("1. 6 andlit\n")
+        print("2. 5 andlit\n")
+        print("3. 4 andlit\n")
+        print("4. 7 andlit\n")
         svar = input("Þitt svar: ")
         if svar == "1":
             print("Það er rétt")
-            ##fara á næsta borð
-        elif svar == "2" or "3" or "4":
+            sys.exit()
+        elif svar == "2":
             print("það er rangt")
-            ##aftur á upphafsskjá eða önnur tilraun?
+            self.total+=1
+            ##aftur á upphafsskjá eða önnur tilraun
+        elif svar == "3":
+            print("það er rangt")
+            self.total+=1
+        elif svar == "4":
+            print("það er rangt")
+            self.total+=1
         else:
             print("það er ekki valmöguleiki")
             self.spurning()
+        if self.total == 2:
+            print("Þú tapaðir og ferð aftur um eitt borð.")
+            sys.exit()
+        else:
+            print("Reyndu aftur")
+            self.mynd()
 b2=Bord2()
 b2.main()
