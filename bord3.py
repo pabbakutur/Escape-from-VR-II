@@ -118,6 +118,7 @@ class Bord3:
         print('#       1.Byrja                      #')
         print('#       2.Upplýsingar um borð 3      #')
         print('#       3.Hætta                      #')
+        print('######################################')
         choice = input('Veldu möguleika 1,2 eða 3: ')
         return choice
 
@@ -129,9 +130,10 @@ class Bord3:
         print('#   mismunandi orðaflokka sem eru    #')
         print('#   í miklu uppáhaldi hjá Lexa.      #')
         print('######################################')
-        print('        1.Kennarar í HÍ    #')
-        print('        2.Frægir stærðfræðingar   #')
-        print('        3.Stærðfræðihugtök #')
+        print('        1.Kennarar í HÍ              #')
+        print('        2.Frægir stærðfræðingar      #')
+        print('        3.Stærðfræðihugtök           #')
+        print('######################################')
         choice = input('Veldu möguleika 1,2 eða 3: ')
         return choice
 

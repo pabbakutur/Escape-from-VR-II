@@ -6,13 +6,21 @@ from PIL import Image
 class Bord2:
     def __init__(self):
         self.total=0
+    
+    def clear(self):
+        for i in range(30):
+           print ('\n')
 
     def intro(self):
-        print("\n")
-        print("Myndagáta! \n")
-        print("Skoðaðu myndina og svaraðu\n")
-        print("Hversu mörg andlit af Lexa eru á myndinni? \n")
-        print("")
+        self.clear()
+        print('###############################################')
+        print('#              Velkominn í borð 2             #')
+        print('#                  Myndagáta                  #')
+        print('###############################################')
+        print("#  Skoðaðu myndina og svaraðu                 #")
+        print("#  Hversu mörg andlit af Lexa eru á myndinni? #")
+        print('###############################################')
+
         while 1:
             a = input('Ýttu á ENTER til að halda áfram')
             if(len(a)<1):
@@ -34,9 +42,9 @@ class Bord2:
         while True:
             self.mynd()
             print("Veldu svar. (1, 2, 3 eða 4)")
-            print("1. 6 andlit\n")
-            print("2. 5 andlit\n")
-            print("3. 4 andlit\n")
+            print("1. 6 andlit")
+            print("2. 5 andlit")
+            print("3. 4 andlit")
             print("4. 7 andlit\n")
             svar = input("Þitt svar: ")
         

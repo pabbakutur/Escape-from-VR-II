@@ -26,9 +26,10 @@ class Bord1():
         print('') ; sleep(0.1)
         print('') ; sleep(0.1)
         print('') ; sleep(0.1)
-        print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(0.1)
-        print('$$   HEIMAVINNAN   $$') ; sleep(0.1)
-        print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(0.1)
+        print('$$$$$$$$$$$$$$$$$$$#$$$$') ; sleep(0.1)
+        print('$$ Velkominn í borð 1 $$') ; sleep(0.1)
+        print('$$     HEIMAVINNAN    $$') ; sleep(0.1)
+        print('$$$$$$$$$$$$$$$$$$$#$$$$') ; sleep(0.1)
         print('') ; sleep(0.1)
         print('') ; sleep(0.1)
         print('') ; sleep(0.1)
@@ -49,10 +50,12 @@ class Bord1():
         random.shuffle(spurningar)
         while True:
             for spurning in spurningar:
-                print("Veldu 1, 2, 3 eða 4")
+                #print("Veldu 1, 2, 3 eða 4")
                 print(spurning["spurning"])
+                print('\n')
                 for i, val in enumerate(spurning["svar"]):
                     print(str(i + 1) + ". " + val)
+                print('\n')
                 answer= self.velja()
                 if answer == spurning["rétt"]:
                     self.score = self.score + 1

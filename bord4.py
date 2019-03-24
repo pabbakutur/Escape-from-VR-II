@@ -21,21 +21,21 @@ class Bord4:
         ## Game functions
 
     def keyra(self):
-        print('''****************************************
-        *          Velkominn í borð 4!          *
-        * Nú er Lexi að safna heimaverkefnisínu!*
-        *    til að geta farið heim að læra.    *
-        *         Hjálpaðu honum að             *
-        *       leita í tölvustofunin           *
-        ****************************************
-        ''')
+        print('###############################################')
+        print('#          Velkominn í borð 4!                #')
+        print('#    Nú er Lexi að safna heimaverkefnisínu!   #')
+        print('#    til að geta farið heim að læra.          #')
+        print('#             Hjálpaðu honum að               #')
+        print('#           leita í tölvustofunin             #')
+        print('###############################################')
         return self.RunSelection("gangur")
 
     def checkstats(self):
-        print('''****************************************''')
+        print('###############################################')
         print("Hlutir:", self.hlutir)
         print("heilsa:", self.heilsa,"/",self.fullheilsa)
         print("Heimaverkefni:", self.nesti)
+        print('###############################################')
 
     def prompt(self):
         x = input("Veldu möguleika: ")
@@ -81,17 +81,14 @@ class Bord4:
 
         ## Gangur
     def gangur(self):
-        print("****************************************")
-        print('''
-
-        Lexi er á ganginum og er að reyna komast heim.
-        Hvert á hann að fara?
-            ''')
-        print('''Valkostir:
-        1. Fara á lesstofuna
-        2. Byrja upp á nýtt
-        9. Staða
-        ''')
+        print('#################################################')
+        print('# Lexi er á ganginum og er að reyna komast heim.#')
+        print('#            Hvert á hann að fara?              #')
+        print('#################################################')
+        print('# Valkostir:                                    #')
+        print('# 1. Fara á lesstofuna                          #')
+        print('# 2. Byrja upp á nýtt                           #')
+        print('#################################################')
 
         command = self.prompt()
         if command == "1":
@@ -111,18 +108,17 @@ class Bord4:
 
     ## lesstofa ////
     def lesstofa(self):
-        print("****************************************")
-        print ('''
 
-     Þú ert kominn á lesstofa. Það er nokkrir ennþá að læra.
-        ''')
+        print('##########################################################')
+        print('# Þú ert kominn á lesstofa. Það er nokkrir ennþá að læra.#')
+        print('#            Hvert á hann að fara?                       #')
+        print('##########################################################')
+        print('# Valkostir:                                             #')
+        print('# 1. Fara fram á gang                                    #')
+        print('# 2. Fara niður í stiglastofuna                          #')
+        print('# 3. Fara í hópavinnustofuna                             #')
+        print('##########################################################')
 
-        print('''Valkostir:
-    1. Fara fram á gang
-    2. Fara niður í stiglastofuna
-    3. Fara í hópavinnustofuna
-    9. Staða
-    ''')
         command = self.prompt()
         if command == "1":
             return "gangur"
