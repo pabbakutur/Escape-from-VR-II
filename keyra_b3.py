@@ -1,3 +1,4 @@
+from Bord1 import Bord1
 from bord2 import Bord2
 from bord3 import Bord3
 from bord4 import Bord4
@@ -23,11 +24,11 @@ from bord4 import Bord4
 #         if i < 3
 #             i = i +1
 #             ollbord[i].keyra()
-
-#b3 = Bord3()
-#ret = b3.keyra()
-b2 = Bord2()
-ret = Bord2().keyra()
+b1 = Bord1()
+ret = b1.keyra()
+if ret == 1:
+    b2 = Bord2()
+    ret = b2.keyra()
 if ret == 1:
     b3 = Bord3()
     ret = b3.keyra()
