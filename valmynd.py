@@ -8,7 +8,6 @@ class upphafsmynd:
     def __init__(self):
         pass
 
-#################################################
     def kynning(self):
         for i in range(30):
             print('')
@@ -32,14 +31,10 @@ class upphafsmynd:
         while 1:
             a = input('Ýttu á ENTER til að halda áfram')
             if(len(a)<1):
+                bord1=Bord1()
                 bord1.byrja()
 
 
-#################################################
-def main():
-    leikur = upphafsmynd()
-    leikur.kynning()
 
-
-if __name__ == '__main__':
-    main()
+valmynd = kynning()
+valmynd.kynning()
