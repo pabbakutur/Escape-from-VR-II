@@ -281,33 +281,35 @@ class Bord3:
             index = random.randrange(0,length)
             return self.hugtok[index]
 
+    def keyra(self):
+        while True:
+            gameProcess = True
+            sel = b3.startgluggi()
+            if sel=='1':
+                while True:
+                    sel2 = b3.startgluggi2()
+                    if not sel2.isdigit():
+                        continue
+                    elif len(sel2)>1:
+                        continue
+                    elif int(sel2)>3 or int(sel2)<0:
+                        continue
+                    else:
+                        word = b3.getWord(int(sel2))
+                        while gameProcess:
+                            gameProcess = b3.game(word,4-int(sel2))
+                        sys.exit()
+            elif sel=='2':
+                b3.upplysingar()
+                continue
+            elif sel=='3':
+                sys.exit()
+            else:
+                continue
 #Hér næst kemur main fallið fyrir borð 3
 b3=Bord3()
 b3.clear()
-while True:
-    gameProcess = True
-    sel = b3.startgluggi()
-    if sel=='1':
-        while True:
-            sel2 = b3.startgluggi2()
-            if not sel2.isdigit():
-                continue
-            elif len(sel2)>1:
-                continue
-            elif int(sel2)>3 or int(sel2)<0:
-                continue
-            else:
-                word = b3.getWord(int(sel2))
-                while gameProcess:
-                    gameProcess = b3.game(word,4-int(sel2))
-                sys.exit()
-    elif sel=='2':
-        b3.upplysingar()
-        continue
-    elif sel=='3':
-        sys.exit()
-    else:
-        continue
+
 #if kalla á borð 4
 #bord4=Bord4()
 #bord4.gangur()
