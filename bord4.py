@@ -1,5 +1,21 @@
 class Bord4:
     def __init__(self):
+        # print('''****************************************
+        # *          Velkominn í borð 4!          *
+        # * Nú er Lexi að safna heimaverkefnisínu!*
+        # *    til að geta farið heim að læra.    *
+        # *         Hjálpaðu honum að             *
+        # *       leita í tölvustofunin           *
+        # ****************************************
+        # ''')
+        self.hlutir=2
+        self.heilsa = 3
+        self.nesti = 0
+        self.fullheilsa = 3
+
+        ## Game functions
+
+    def keyra(self):
         print('''****************************************
         *          Velkominn í borð 4!          *
         * Nú er Lexi að safna heimaverkefnisínu!*
@@ -8,12 +24,7 @@ class Bord4:
         *       leita í tölvustofunin           *
         ****************************************
         ''')
-        self.hlutir=2
-        self.heilsa = 3
-        self.nesti = 0
-        self.fullheilsa = 3
-
-        ## Game functions
+        self.gangur()
 
     def checkstats(self):
         print('''

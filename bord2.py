@@ -45,5 +45,7 @@ class Bord2:
         else:
             print("það er ekki valmöguleiki")
             self.spurning()
-b2=Bord2()
-b2.main()
+
+    def keyra(self):
+        self.main()
+        return 1

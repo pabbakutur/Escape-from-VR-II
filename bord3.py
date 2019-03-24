@@ -185,7 +185,7 @@ class Bord3:
             print('# Þú tapaðir, skrifaðu inn einhvern staf til að reyna aftur!')
             time.sleep(2)
             _in = input('')
-            return '#'
+            return -1
 
         #Game is the process of gaming. Skilar false ef leikur endar. hintMax á ekki að vera stærri en 3.
     def game(self,word,hintMax):
@@ -193,7 +193,7 @@ class Bord3:
         miss = 0
         hintTimes = 0
         misses = []
-        b4=Bord4()
+        #b4=Bord4()
 
         guess = ['_' for i in range(length)]
         for i in range(length):
@@ -224,14 +224,16 @@ class Bord3:
                 time.sleep(2)
                 continue
             elif operation == '!':
-                sys.exit()
+                #sys.exit()
                 #self.clear()
                 #self.hengimadurprent(9-miss)
                 #print('###########################################')
                 #print('# Svarið er: ',word)
                 #print('# Augnablik!')
                 #time.sleep(3)
-                #return False
+                return 0
+            elif operation == -1:
+                return -1
             else:
                 flag=0
                 for i in range(length):
@@ -254,7 +256,8 @@ class Bord3:
                 print('# Vel gert!')
                 time.sleep(2)
                 keyra = False
-                b4.gangur()
+                #b4.gangur()
+                return 1
                 #return False
 
         #Þetta fall skilar réttum staf. Word er strengur og guess er listi.
@@ -282,12 +285,13 @@ class Bord3:
             return self.hugtok[index]
 
     def keyra(self):
+        self.clear()
         while True:
             gameProcess = True
-            sel = b3.startgluggi()
+            sel = self.startgluggi()
             if sel=='1':
                 while True:
-                    sel2 = b3.startgluggi2()
+                    sel2 = self.startgluggi2()
                     if not sel2.isdigit():
                         continue
                     elif len(sel2)>1:
@@ -295,21 +299,18 @@ class Bord3:
                     elif int(sel2)>3 or int(sel2)<0:
                         continue
                     else:
-                        word = b3.getWord(int(sel2))
-                        while gameProcess:
-                            gameProcess = b3.game(word,4-int(sel2))
-                        sys.exit()
+                        word = self.getWord(int(sel2))
+                        #while gameProcess:
+                        return self.game(word,4-int(sel2))
+                        #sys.exit()
             elif sel=='2':
-                b3.upplysingar()
+                self.upplysingar()
                 continue
             elif sel=='3':
                 sys.exit()
             else:
                 continue
 #Hér næst kemur main fallið fyrir borð 3
-b3=Bord3()
-b3.clear()
-
 #if kalla á borð 4
 #bord4=Bord4()
 #bord4.gangur()
