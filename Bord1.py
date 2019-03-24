@@ -17,7 +17,7 @@ class Bord1():
         pass
 
     def byrja(self):
-<<<<<<< HEAD
+
 #        print('') ; sleep(1)
 #        print('') ; sleep(1)
 #        print('') ; sleep(1)
@@ -45,7 +45,7 @@ def velja():
     return x
 
 def spila(self, spurningar):
-=======
+
         print('') ; sleep(1)
         print('$$$$$$$$$$$$$$$$$$$$$') ; sleep(1)
         print('$$   HEIMAVINNAN   $$') ; sleep(1)
@@ -71,7 +71,7 @@ def spila(self, spurningar):
 
 import random
 def spila(spurningar):
->>>>>>> 6e403a9c5ce9e76da20ac5023ce589ac76c1e8bb
+
     print("\n")
     score = 0
     total = 0
