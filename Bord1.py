@@ -85,6 +85,7 @@ class Bord1():
                     return -1
                 elif self.score == 2:
                     print("Þú vannst")
+                    time.sleep(2)
                     return 1
                     #láta fara á næsta borð
                 else:
