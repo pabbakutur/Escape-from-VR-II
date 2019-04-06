@@ -6,7 +6,7 @@ from PIL import Image
 class Bord2:
     def __init__(self):
         self.total=0
-    
+
     def clear(self):
         for i in range(30):
            print ('\n')
@@ -18,6 +18,7 @@ class Bord2:
         print('#                  Myndagáta                  #')
         print('###############################################')
         print("#  Skoðaðu myndina og svaraðu                 #")
+        print("#  Þú hefur 2 tilraunir til að svara rétt     #")
         print("#  Hversu mörg andlit af Lexa eru á myndinni? #")
         print('###############################################')
 
@@ -47,7 +48,7 @@ class Bord2:
             print("3. 4 andlit")
             print("4. 7 andlit\n")
             svar = input("Þitt svar: ")
-        
+
             if svar == "1":
                 print("Það er rétt")
                 return 1
@@ -74,4 +75,3 @@ class Bord2:
     def keyra(self):
         self.intro()
         return self.spurning()
-        
