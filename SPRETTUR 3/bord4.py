@@ -26,7 +26,8 @@ class Bord4:
         print('#    Nú er Lexi að safna heimaverkefnisínu!   #')
         print('#    til að geta farið heim að læra.          #')
         print('#             Hjálpaðu honum að               #')
-        print('#           leita í tölvustofunin             #')
+        print('#           að komast til stákana             #')
+        print('#       og fá hjá þeim heimaverkefni          #')
         print('###############################################')
         return self.RunSelection("gangur")
 
@@ -73,7 +74,7 @@ class Bord4:
                 return -1
             elif room == "1":
                 return 1
-            elif room == "0": 
+            elif room == "0":
                 return 0
             else:
                 return 0
@@ -146,7 +147,7 @@ class Bord4:
         if self.heilsa > 0:
             print('''********
     Stærðfræði stiglar ráðast á Lexa með Sundurleitnisetningu II
-    og hann meiðist og missir 1 líf.
+    og hann meiðist og missir 1 líf. Reyndur að forða þér.
     (-1 heilsa)''')### missir líf
             self.heilsa = self.heilsa - 1
             #heilsan fer niður
@@ -185,7 +186,8 @@ class Bord4:
         print ('''Valkostir:
     1. Fara fram á gang
     2. Tala við strákana
-    3. Athuga hvort Lexi komist út
+    3. Athuga hvort Lexi komist út með því að tala veri
+       Deildarstjóri
     9. Stats''')
         command = self.prompt()
         if command == "1":
@@ -290,4 +292,3 @@ class Bord4:
 if __name__ == '__main__':
     b4 = Bord4()
     b4.keyra()
-    
