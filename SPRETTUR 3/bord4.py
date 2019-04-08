@@ -8,7 +8,6 @@ class Bord4:
         # *       leita í tölvustofunin           *
         # ****************************************
         # ''')
-        self.hlutir=2
         self.heilsa = 3
         self.nesti = 0
         self.fullheilsa = 3
@@ -23,8 +22,10 @@ class Bord4:
     def keyra(self):
         print('###############################################')
         print('#          Velkominn í borð 4!                #')
-        print('#    Nú er Lexi að safna heimaverkefnisínu!   #')
+        print('#    Nú er Lexi að safna heimaverkefnum       #')
         print('#    til að geta farið heim að læra.          #')
+        print('#    Lexi þarf að fá 2 heimaverkefni til      #')
+        print('#         að komast heim til sín.             #')
         print('#             Hjálpaðu honum að               #')
         print('#           að komast til stákana             #')
         print('#       og fá hjá þeim heimaverkefni          #')
@@ -32,11 +33,11 @@ class Bord4:
         return self.RunSelection("gangur")
 
     def checkstats(self):
-        print('###############################################')
-        print("Hlutir:", self.hlutir)
-        print("heilsa:", self.heilsa,"/",self.fullheilsa)
+        print('###################################')
+        print("Heilsa:", self.heilsa,"/",self.fullheilsa)
         print("Heimaverkefni:", self.nesti)
-        print('###############################################')
+        print('###################################')
+        print('')
 
     def prompt(self):
         x = input("Veldu möguleika: ")
@@ -159,9 +160,8 @@ class Bord4:
     Ertu viss um þú viljir fara aftur inní stiglastofuna
     1. Fara fram á gang
     2. Fara inn í stiglastofuna
-    3. Fara inná skrifstofu prófessoranna
-    9. Stats
-        ''') ##It gives you your options
+    3. Fara inná skrifstofu prófessoranna''') ##It gives you your options
+        while True:
             command = self.prompt()
             if command == ("1"):
                 return "gangur"
@@ -169,11 +169,6 @@ class Bord4:
                 return "stiglaas"
             elif command == "3":
                 return "skrifstofu"
-            elif command == "9":
-                self.checkstats()
-                return "stiglaas"
-            else:
-                return "stiglaas"
         else:
             return "-1"
 
@@ -187,8 +182,7 @@ class Bord4:
     1. Fara fram á gang
     2. Tala við strákana
     3. Athuga hvort Lexi komist út með því að tala veri
-       Deildarstjóri
-    9. Stats''')
+       Deildarstjóri''')
         command = self.prompt()
         if command == "1":
             return "gangur"
@@ -235,7 +229,6 @@ class Bord4:
             print("Röggi Möller tekur upp bók Ragnars og les fyrir Lexa")
             print("Lexi dáleiðist samstundis og kemst aldrei heim")
             print('''Þú tapaðir!!!!!''')
-
 
 
     ##Training//////////////

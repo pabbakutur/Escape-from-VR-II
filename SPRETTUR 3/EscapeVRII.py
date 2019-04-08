@@ -4,6 +4,7 @@ from bord3 import Bord3
 from bord4 import Bord4
 import sys
 from time import sleep
+import time
 
 def kynning():
     sleepInterval = 0.1
@@ -36,7 +37,7 @@ b3 = Bord3()
 b4 = Bord4()
 
 kynning()
-i = 1
+i = 4
 while True:
     if i==1:
         ret = b1.keyra()
@@ -51,7 +52,7 @@ while True:
         if i > 1:
             i = i - 1
         else:
-            print('Þú tapar. Loser!')
+            print('Loser!')
             sys.exit()
     elif ret == 0:
         print('Leik hætt. Takk fyrir að reyna')
