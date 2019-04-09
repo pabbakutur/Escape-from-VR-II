@@ -1,7 +1,7 @@
 import sys
 import time
 import random
-from bord4 import Bord4
+#from bord4 import Bord4
 #from bord2 import Bord2
 class Bord3:
     def __init__(self):

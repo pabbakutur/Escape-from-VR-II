@@ -53,16 +53,20 @@ while True:
             i = i - 1
         else:
             print('Loser!')
-            sys.exit()
+            #sys.exit()
+            break
     elif ret == 0:
         print('Leik hætt. Takk fyrir að reyna')
-        sys.exit()
+        #sys.exit()
+        break
     else:
         if i < 4:
             i = i + 1
         else:
             print('Til hamingju. Þú hefur klárað leikinn!')
-            sys.exit()
+            #sys.exit()
+            break
+
 
 
 

@@ -1,3 +1,4 @@
+from time import sleep
 class Bord4:
     def __init__(self):
         # print('''****************************************
@@ -20,6 +21,7 @@ class Bord4:
         ## Game functions
 
     def keyra(self):
+        self.clear()
         print('###############################################')
         print('#          Velkominn í borð 4!                #')
         print('#    Nú er Lexi að safna heimaverkefnum       #')
@@ -30,6 +32,13 @@ class Bord4:
         print('#           að komast til stákana             #')
         print('#       og fá hjá þeim heimaverkefni          #')
         print('###############################################')
+
+        while 1:
+            a = input('Ýttu á ENTER til að halda áfram')
+            if(len(a)<1):
+                break        
+        self.__init__()
+        self.clear()
         return self.RunSelection("gangur")
 
     def checkstats(self):
@@ -45,31 +54,39 @@ class Bord4:
 
     def RunSelection(self, room):
         while True:
-            self.clear()
+            #self.clear()
             self.checkstats()
             if room == "gangur":
                 room = self.gangur()
+                self.clear()
                 continue
             elif room == "lesstofa":
                 room = self.lesstofa()
+                self.clear()
                 continue
             elif room == "stiglaas":
                 room = self.stiglaas()
+                self.clear()
                 continue
             elif room == "hopav":
                 room = self.hopav()
+                self.clear()
                 continue
             elif room == "heim":
                 self.heim()
+                self.clear()
                 return 1
             elif room == "skrifstofu":
                 room = self.skrifstofu()
+                self.clear()
                 continue
             elif room == "strakar":
                 room = self.strakar()
+                self.clear()
                 continue
             elif room == "boatconvo":
                 room = self.boatconvo()
+                self.clear()
                 continue
             elif room == "-1":
                 return -1
@@ -209,7 +226,7 @@ class Bord4:
     Helstu prófessorar HÍ hópast að Lexa
     ''')
 
-        print('''1. Hlaupa fram á gang
+        print('''    1. Hlaupa fram á gang
     2. Reyna leysa heildið sem þeir leggja fyrir þig
     3. Reyna vera vinur Rögga Möllers og Ragnars S''')
         command = self.prompt()
@@ -223,12 +240,18 @@ class Bord4:
             print('''
 
     Þú tapaðir!!!!!''')
+            sleep(2)
+            return "-1"
         elif command == "3":
             print('''
     *********''')
             print("Röggi Möller tekur upp bók Ragnars og les fyrir Lexa")
             print("Lexi dáleiðist samstundis og kemst aldrei heim")
             print('''Þú tapaðir!!!!!''')
+            sleep(2)
+            return "-1"
+        else:
+            return "skrifstofu"
 
 
     ##Training//////////////
