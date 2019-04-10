@@ -55,38 +55,46 @@ class Bord4:
     def RunSelection(self, room):
         while True:
             #self.clear()
-            self.checkstats()
+            #self.checkstats()
             if room == "gangur":
                 room = self.gangur()
                 self.clear()
+                self.checkstats()
                 continue
             elif room == "lesstofa":
                 room = self.lesstofa()
                 self.clear()
+                self.checkstats()
                 continue
             elif room == "stiglaas":
                 room = self.stiglaas()
                 self.clear()
+                self.checkstats()
                 continue
             elif room == "hopav":
                 room = self.hopav()
                 self.clear()
+                self.checkstats()
                 continue
             elif room == "heim":
                 self.heim()
                 self.clear()
+                self.checkstats()
                 return 1
             elif room == "skrifstofu":
                 room = self.skrifstofu()
                 self.clear()
+                self.checkstats()
                 continue
             elif room == "strakar":
                 room = self.strakar()
                 self.clear()
+                self.checkstats()
                 continue
             elif room == "boatconvo":
                 room = self.boatconvo()
                 self.clear()
+                self.checkstats()
                 continue
             elif room == "-1":
                 return -1

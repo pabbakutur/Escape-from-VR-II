@@ -1,8 +1,10 @@
 import sys
 import time
 import random
+#from bord import Bord
 #from bord4 import Bord4
 #from bord2 import Bord2
+#class Bord3(Bord):
 class Bord3:
     def __init__(self):
         self.kennarar = ['SIGURÐUR ÖRN','RÖGNVALDUR MÖLLER','INGÓLFUR HJÖRLEIFSSON','GUNNAR SCHRAM','VILMUNDUR TORFI','SIGURÐUR FREYR']
@@ -121,7 +123,8 @@ class Bord3:
         print('######################################')
         choice = input('Veldu möguleika 1,2 eða 3: ')
         return choice
-
+        #return self.GetKeypressS('123')
+        
         #Spilari fær að velja mismunandi orðaflokka
     def startgluggi2(self):
         self.clear()
@@ -136,6 +139,7 @@ class Bord3:
         print('######################################')
         choice = input('Veldu möguleika 1,2 eða 3: ')
         return choice
+        #return self.GetKeypressS('123')
 
         #Fall sem inniheldur upplýsingar um borð 3.  Til að fara úr því þarf að ýta á einhvern takka
     def upplysingar(self):
@@ -309,7 +313,7 @@ class Bord3:
                 self.upplysingar()
                 continue
             elif sel=='3':
-                sys.exit()
+                sys.exit(0)
             else:
                 continue
 #Hér næst kemur main fallið fyrir borð 3
