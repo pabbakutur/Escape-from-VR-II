@@ -26,7 +26,7 @@ class Bord3(Bord):
         self.clearScreen()
         self.setHeader(
             'Velkominn í borð 3\n'+
-            'Hengimaður að hætti Lexa')
+            'Hengimaður að hætti Lexa','c')
         self.setDirection('\n')
         self.setOptions(
             '1.Byrja\n'+
@@ -43,7 +43,7 @@ class Bord3(Bord):
         self.setHeader(
             'Nú hefur þú kost á að velja 3\n'+
             'mismunandi orðaflokka sem eru\n'+
-            'í miklu uppáhaldi hjá Lexa.')
+            'í miklu uppáhaldi hjá Lexa.','c')
         
         self.setOptions(
             '1.Kennarar í HÍ\n'+

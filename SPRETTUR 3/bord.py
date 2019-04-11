@@ -46,10 +46,10 @@ class Bord():
 
     def clearScreen(self):
         #Hreinsum skjáinn (30 auðar línur)
-        for i in range(30):
-           print ('\n')   
+        print ('\n'*30)   
 
     def printGameScreen(self):
+        self.clearScreen()
         #print formatted games-screen
         print('#' * self.screenLength)
         print(self.sHeader,end='')
@@ -97,17 +97,18 @@ class Bord():
 if __name__ == '__main__':
     b = Bord()
     b.printGameScreen()
-    #b.clearScreen()
     print(b.GetKeypressS('123'))
     b.setHeader("First line\nSecond line",'c')
     b.printGameScreen()
+    print(b.GetKeypressS('123'))
     b.setHeader("First line\nSecond line",'r')
     b.printGameScreen()
+    print(b.GetKeypressS('123'))
     b.setHeader("First line\nSecond line",'l')
     b.printGameScreen()
-
-
     print(b.GetKeypressS('123'))
+
+
     print(b.GetKeypressS('123','Veldu eitthvað af valmöguleikum'))
     print(b.GetKeypressS('','Giskaðu á einhvern staf'))
     print(b.GetKeypressS('','Press any key'))
