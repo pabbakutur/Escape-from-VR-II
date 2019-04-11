@@ -8,8 +8,7 @@ class Bord2:
         self.total=0
 
     def clear(self):
-        for i in range(30):
-           print ('\n')
+        print ('\n'*30)
 
     def intro(self):
         self.clear()
