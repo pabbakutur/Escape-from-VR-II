@@ -36,7 +36,7 @@ class Bord2:
         ImageNumpyFormat = np.asarray(ImageItself)
         plt.imshow(ImageNumpyFormat)
         plt.draw()
-        plt.pause(3) # pause
+        plt.pause(5) # pause
         plt.close()
 
     def spurning(self):

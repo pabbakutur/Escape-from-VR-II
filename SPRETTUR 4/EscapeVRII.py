@@ -37,7 +37,7 @@ b3 = Bord3()
 b4 = Bord4()
 
 kynning()
-i = 4
+i = 1
 while True:
     if i==1:
         ret = b1.keyra()

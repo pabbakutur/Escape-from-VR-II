@@ -248,7 +248,7 @@ class Bord4:
             print('''
 
     Þú tapaðir!!!!!''')
-            sleep(2)
+            sleep(5)
             return "-1"
         elif command == "3":
             print('''
@@ -256,7 +256,7 @@ class Bord4:
             print("Röggi Möller tekur upp bók Ragnars og les fyrir Lexa")
             print("Lexi dáleiðist samstundis og kemst aldrei heim")
             print('''Þú tapaðir!!!!!''')
-            sleep(2)
+            sleep(5)
             return "-1"
         else:
             return "skrifstofu"
